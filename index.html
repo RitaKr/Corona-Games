@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="main.css">
+    
+    <script src="jquery-3.3.1.js"></script>
+    <title>CORONA-GAMES</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+<div id="header">
+    <div id="hdiv1" class="hdiv">
+        
+        
+        <div>
+            <img src="images/covid.png" class="hdiv-img">
+            <span class="hdiv-span">
+                <h1>CORONA GAMES</h1>
+                <h2>Что это такое?</h2>
+                CORONA GAMES - проект, призванный помочь вам пережить пандемию коронавируса 
+                и разнообразить ваши серые будни в самоизоляции. На этом сайте вы можете занять 
+                своё время минииграми и представить себя супергероем спасающим мир от коронавируса
+            </span>
+        </div>
+    
+    </div>
+    <div id="hdiv2" class="hdiv">
+        
+        <div>
+            <img src="images/covid.png" class="hdiv-img">
+            <span class="hdiv-span">
+                <h1>CORONA GAMES</h1>
+                <h2>Что это такое?</h2>
+                CORONA GAMES - проект, призванный помочь вам пережить пандемию коронавируса 
+                и разнообразить ваши серые будни в самоизоляции. На этом сайте вы можете занять 
+                своё время минииграми и представить себя супергероем спасающим мир от коронавируса
+            </span>
+        </div>
+    </div>
+    <div id="hdiv3" class="hdiv">
+        
+        <div>
+            <img src="images/covid.png" class="hdiv-img">
+            <span class="hdiv-span">
+                <h1>CORONA GAMES</h1>
+                <h2>Что это такое?</h2>
+                CORONA GAMES - проект, призванный помочь вам пережить пандемию коронавируса 
+                и разнообразить ваши серые будни в самоизоляции. На этом сайте вы можете занять 
+                своё время минииграми и представить себя супергероем спасающим мир от коронавируса
+            </span>
+        </div>
+    </div>
+    <div id="hdiv4" class="hdiv">
+        
+        <div>
+            <img src="images/covid.png" class="hdiv-img">
+            <span class="hdiv-span">
+                <h1>CORONA GAMES</h1>
+                <h2>Что это такое?</h2>
+                CORONA GAMES - проект, призванный помочь вам пережить пандемию коронавируса 
+                и разнообразить ваши серые будни в самоизоляции. На этом сайте вы можете занять 
+                своё время минииграми и представить себя супергероем спасающим мир от коронавируса
+            </span>
+        </div>
+    </div>
+</div>
+<div class="main">
+    <h1>Виберите игру</h1>
+<div class="games-menu-container">
+    <div class="games-menu-item-container" id="color-words" >
+        <a class="games-menu-item"  href="color-words/index.html" target="open-game">
+            <h2>Color Words</h2>    
+        </a>
+        <p class="games-menu-item-description" id="color-words-description" >
+        В этой игре Вам надо нажимать на кнопку того цвета, который написан сверху. 
+        Главное не перепутать цвет которым слово ОКРАШЕНО с цветом который оно ОБОЗНАЧАЕТ. Игра ограничена временем - 30 секунд
+        </p>
+    </div>
+    <div class="games-menu-item-container" id="rps" >
+        <a class="games-menu-item"  href="rock-paper-scissors/index.html" target="open-game">
+            <h2>Rock Paper Scissors</h2>
+        
+        </a>
+        <p class="games-menu-item-description" id="rps-description" >
+            Классическая игра "Камень ножницы бумага", только твой соперник - компьютер. 
+            Чтоб начать игру нужно нажать кнопку "Начать игру" и выбрать ёё продолжительность.
+            Игра ограничена количеством раундов, то есть заканчивается по окончанию последнего раунда.
+        </p>
+    </div>
+    <div class="games-menu-item-container" >
+        <a class="games-menu-item" href="maze/index.html" target="open-game">
+            <h2>Maze</h2>
+        
+        </a>
+        <p class="games-menu-item-description" id="">
+            Description of the game
+        </p>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    $(window).scroll(function(e){
+    
+    let windowWidth = window.innerWidth*3+20;
+    let proscrolleno = $(window).scrollTop();
+    
+    if  (proscrolleno<=windowWidth-20) { 
+             
+     console.log('windowWidth '+windowWidth);    //(window.innerWidth*0.0012);
+        
+        console.log('proscrolleno '+proscrolleno);
+        /*
+        console.log('hdiv1 top '+$('#hdiv1').css('top'))
+        console.log('hdiv1 height '+$('#hdiv1').css('height'));
+        */
+        $('#header').css({
+            'height': `calc(100vh + ${proscrolleno}px)`
+        })
+        
+        $('#hdiv1').css({
+            'left':  `-${proscrolleno}px` ,
+             //'height': `calc(100vh + ${proscrolleno*1.2}px)`,
+            
+        })
+        $('#hdiv2').css({
+           
+            'left':  `calc(100vw - ${proscrolleno}px)` ,
+           
+        })
+        $('#hdiv3').css({
+           // 'height': `calc(100vh + ${proscrolleno*1.2}px)`,
+            'left':  `calc(200vw - ${proscrolleno}px)` ,
+            
+           
+         
+        })
+        $('#hdiv4').css({
+            //'height': `calc(100vh + ${proscrolleno*1.2}px)`,
+            'left':  `calc(300vw - ${proscrolleno}px)` ,
+            'top':  0 ,
+            
+          
+        })
+        $('.main').css({
+            'top':  `calc(100vh + ${proscrolleno}px)` ,
+            
+        })
+            
+    }  else  { 
+        $('#hdiv4').css({
+            'top':  `-${proscrolleno - windowWidth}px` ,
+            'left':  `0` ,
+        });
+        $('.main').css({
+            'left':  `0` ,
+            
+        })
+    
+    }
+    
+    })
+/*
+    $('#color-words').mouseover(()=>{
+        $('#color-words-description').fadeIn(300);
+        $('#color-words-description').css({
+            'transform':'tranlateY(0)'
+        });
+        
+    });
+   
+    $('#color-words').mouseout(()=>{
+        $('#color-words-description').fadeOut(300);
+        $('#color-words-description').css({
+            'transform':'tranlateY(-30vh)'
+        });
+        
+    }) 
+    */
+</script>
+</body>
+</html>

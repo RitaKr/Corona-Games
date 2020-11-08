@@ -1,0 +1,37 @@
+body {
+    background-image: linear-gradient(to bottom, rgb(0, 90, 102), rgb(28, 46, 146));
+}
+
+.game-title {
+    background-image: linear-gradient(to bottom, rgb(0, 90, 102), rgb(28, 46, 146));
+}
+
+canvas {
+
+    background: black;
+    display: block;
+}
+
+#rocket {
+    height: 60px;
+    width: 60px;
+}
+
+.cometa {
+    height: 50px;
+    width: 50px;
+    display: block;
+    filter: invert();
+    margin: 30px 0;
+
+}
+
+
+.rocket-space {
+    margin: 10px;
+    margin-left: 40px;
+    display: flex;
+    align-items: center;
+    height: 330px;
+    position: absolute;
+}
