@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Asap&display=swap" rel="stylesheet">
+        <title>Камень ножницы бумага</title>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <div class="menu">
+            <span class="rules-span">Правила игры <img src="../images/arrow.png" class="arrow">
+                <div class="rules">
+                    
+                    <p>
+                    <ul>
+                        <li>
+                        Классическая игра "Камень ножницы бумага", только твой соперник - компьютер. 
+                        Чтоб начать игру нужно нажать кнопку "Начать игру" и выбрать ёё продолжительность. 
+                        </li>
+                        <li> 
+                        Игра без времени, но с ограничением количеством раундов.
+                        </li>
+                        <li>
+                        Что б походить надо нажать на иконку с тем что хотите выкинуть (камень, ножницы или бумага). После этого Вы увидете выбор компбютера и исход раунда.
+                        </li>
+                        <li> 
+                        Ваша цель - победить компьютера.
+                        </li>
+                        <li>  
+                    За определенный исход игры полагаются награды:
+                    <table>
+                        <tr>
+                            <th>Победа</th>
+                            <td>
+                                <img src="../images/tp.png" title="туалетная бумага">
+                                <em class="comment">3 рулонa туалетной бумаги можно обменять на маску, 5 рулонов - на антисептик</em>
+                                <br>
+                                <em class="comment">1 вложение в вакцину = 5 рулонов туалетной бумаги</em>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>2 победы подряд</th>
+                            <td>
+                                <img src="../images/msk.png" title="маска">
+                                <em class="comment">1 маску можно обменять на 4 рулонa туалетной бумаги, 2 маски - на антисептик</em>
+                                <br>
+                                <em class="comment">1 вложение в вакцину = 3 маски</em>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>3 победы подряд</th>
+                            <td>
+                                <img src="../images/an.png" title="антисептик">
+                                <em class="comment">1 антисептик можно обменять на 3 маски, либо 6 рулонов туалетной бумаги</em>
+                                <br>
+                                <em class="comment">1 вложение в вакцину = 1 антисептик</em>
+                            </td>
+                        </tr>
+                    </table>
+                    </li>
+                    <li>
+                        Предметы можно вложить в вакцину от коронавируса, которая должна спасти всё население. Каждое вложение спасает 1% населения. 
+                        Цены указаны в таблице. 
+                    </li>
+                    
+                </ul>
+                </p>
+                </div>
+            </span>
+            <div>
+                <img src="../images/covid.png" class="covid-icon">
+                <h1 class="game-title">Rock Paper Scissors</h1>
+                <div class="times-played">Сыграно Вами <span id="times-played"></span> раз<span id="times-ending"></span></div>
+            </div>
+            
+            <a href="../index.html" target="home" class="to-home">На главную</a>
+        </div>
+
+    
+        <div id="rounds" class="end-game">
+            <span>
+            <p>Перед началом игры выберите ее продолжительность:</p>
+            <button class="rounds-number-btn" id="five">5 раундов</button>
+            <button class="rounds-number-btn" id="ten">10 раундов</button>
+            <button class="rounds-number-btn" id="twenty">20 раундов</button>
+            <button class="rounds-number-btn" id="fifty">50 раундов</button>
+        </span>
+    </div>
+
+    <div class="game-space-container">
+
+        <div class="container">
+            
+            <button class="set-progress" id="set-progress" onclick="NullProgress()">Аннулировать прогресс</button>
+            <button class="start" id="start" onclick="startGame('start')">Начать игру</button>
+            <div class="time-container">
+                <span>Побед: <span id="wins"></span></span>
+                <span>Ничьих: <span id="draws"></span></span>
+                <span>Поражений: <span id="loses"></span></span>
+            </div>
+            <span id="rounds-number">Раунд 0</span>
+           
+            <div class='score-board'>
+                <div id="user-label" class="badge">игрок</div>
+                <div id="computer-label" class="badge">комп</div>
+                <span id="user-score">0</span>:<span id="computer-score">0</span>
+            </div>
+
+        <div class="result">
+            <p></p>
+        </div>
+
+        <div class="choices">
+            <div class="choice"  id="rock">
+                <img src="images/rock.png" alt="rock">
+            </div>
+            <div class="choice"  id="paper">
+                <img src="images/paper.png" alt="paper">
+            </div>
+            <div class="choice"  id="scissors">
+                <img src="images/scissors.png" alt="scissors">
+            </div>
+        </div>
+
+        <span id="action-message">Выберите чем походить</span>
+    </div>
+    <div class="achivment-container">
+        <h3>Твои запасы:</h3>
+        <table class="achivment-table">
+            <tr>
+                
+                <th>В наличии</th>
+                <th>Предмет</th>
+                <th>Цена вакцины</th>
+            </tr>
+            <tr>
+                
+                <td><span id="tp-value"></span></td>
+                <td>
+                    <img src="../images/tp.png" height="50px" id="tp" class="achivment-img">
+                </td>
+                <td>5</td>
+            </tr>
+            <tr>
+                
+                <td><span id="msk-value"></span></td>
+                <td>
+                    <img src="../images/msk.png" height="50px" id="msk" class="achivment-img">
+                </td>
+                <td>3</td>
+                
+            </tr>
+            <tr>
+                
+                <td><span id="an-value"></span></td>
+                <td>
+                    <img src="../images/an.png" height="50px" id="an" class="achivment-img">
+                </td>
+                <td>1</td>
+            </tr>
+        </table>
+        <div class="exchange-container">
+            <div id="excange-item">Выберите предмет</div>
+            <div class="exchange-btn-container">
+                <button id="excange" class="excange-btn">Обменять</button>
+                <button id="excange2" class="excange-btn">Вложить в вакцину</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="vaccine-line-container">
+    <span id="vaccine-line"></span>
+    <span class="vaccine-line-title">Вы спасли <span id="vaccine-value"></span>% населения</span>
+</div>
+<div class="end-game" id="end-game">
+</div>
+        <script src="script.js"></script>
+        <script src="../main.js"></script>
+    </body>
+</html>
