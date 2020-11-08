@@ -19,8 +19,10 @@ body {
 .answer-container {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    justify-self: center;
+    align-self: center;
+    align-items: space-around;
+    justify-content: space-around;
     margin: 0 auto;
 }
 .answer {
@@ -30,10 +32,42 @@ body {
     border-bottom: 40px solid rgb(29, 12, 92);
     background: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
-    margin: 8px;
+    margin: 5vw;
     transition: all .3s ease;
 }
 .answer:hover {
     transform: scale(1.05);
 }
 
+@media (max-width: 720px) {
+    .answer-container {
+        display: flex;
+    flex-wrap: wrap;
+    align-items: space-around;
+    align-content: space-around;
+    justify-content: center;
+    margin: 2vw;
+    width: 100%;
+    }
+    .answer {
+        width: 20vw;
+        height: 20vw;
+        border: none;
+        border-bottom: 5vw solid rgb(29, 12, 92);
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        margin: 3vw;
+        justify-self: baseline;
+        transition: all .3s ease;
+    }
+    #word {
+        font-size: 1.2em;
+    }
+    .title {
+        font-size: 0.8em;
+    }
+    body {
+        background-size: 100vw 100vh;
+        background-attachment: fixed;
+    }
+}

@@ -34,4 +34,12 @@ canvas {
     align-items: center;
     height: 330px;
     position: absolute;
+
+}
+
+@media (max-width: 720px) {
+    body {
+        background-size: 100vw 100vh;
+        background-attachment: fixed;
+    }
 }

@@ -142,3 +142,44 @@ body, .game-title {
     bottom: -25px;
     right: -5px;
 }
+
+@media (max-width: 720px) {
+    .choices {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .choice{
+        
+    }
+    .choice img {
+        width: 15vw;
+        filter: invert();
+        -webkit-filter: invert();
+        
+    }
+    body {
+        background-size: 100vw 100vh;
+        background-attachment: fixed;
+    }
+    .menu h1 {
+        font-size: 1.3em;
+    }
+    #rounds span {
+        max-width: 90vw;
+    }
+    .result {
+        font-size: 0.8em;
+        
+    
+    }
+    .small-img {
+        width: 40px;
+        filter: invert();
+        position: relative;
+        bottom: -20px;
+        right: -5px;
+    }
+    font {
+        font-size: 0.3;
+    }
+}
