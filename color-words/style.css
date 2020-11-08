@@ -49,8 +49,8 @@ body {
     width: 100%;
     }
     .answer {
-        width: 20vw;
-        height: 20vw;
+        width: 25vw;
+        height: 25vw;
         border: none;
         border-bottom: 5vw solid rgb(29, 12, 92);
         background: rgba(255, 255, 255, 0.2);
