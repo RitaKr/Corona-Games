@@ -621,7 +621,7 @@ html {
         flex-direction: column;
     }
     .container {
-        width: 80vw;
+        width: 90vw;
         margin: 20px 0px;
         display: flex;
         font-size: 1em;
@@ -636,7 +636,7 @@ html {
     
     
     .achivment-container {
-        width: 80vw;
+        width: 90vw;
         margin-bottom: 50px;
         display: flex;
         flex-wrap: wrap;
