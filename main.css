@@ -140,6 +140,7 @@ html {
     padding: 0px; 
     position: relative;
     margin: 10px 0;
+    text-decoration: none;
 }
 .games-menu-item {
     text-decoration: none;
@@ -559,6 +560,9 @@ html {
     h1 {
         font-size: 0.7em;
     }
+    .hdiv {
+        padding: 20px 40px;
+    }
     .hdiv div {
         display: flex;
         justify-content: center;
@@ -567,7 +571,7 @@ html {
         flex-wrap: nowrap;
         justify-content: center;
         flex-direction: column-reverse;
-        
+        font-size: 0.7em;
     } 
     .hdiv div h2 {
         font-size: 1em;
@@ -589,7 +593,8 @@ html {
        justify-content: space-around;
     }  
     .games-menu-item-description {
-        top: 0;
+        top: -15px;
+        font-size: 0.6em;
     }
     .main {
         padding: 20px 40px;
