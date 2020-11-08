@@ -192,52 +192,7 @@ html {
 }
 
 
-@media (max-width: 540px) {
-    * {
-        font-size: 0.9em;
-    }
-    h1 {
-        font-size: 0.7em;
-    }
-    .hdiv div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-        flex-wrap: nowrap;
-        justify-content: center;
-        flex-direction: column-reverse;
-        
-    } 
-    .hdiv div h2 {
-        font-size: 1em;
-    }
-    .hdiv-img {
-        padding: 20px;
-        width: 100%
-        
-    }
-    .hdiv-span {
-        padding: 0px;
-        width: 100%;
-    }
-    .games-menu-container{
-        display: grid;
-        grid-template-columns: 100%;
-        grid-template-rows: 20vh 20vh 20vh;
-        
-       justify-content: space-around;
-    }  
-    .games-menu-item-description {
-        top: 0;
-    }
-    .main {
-        padding: 20px 40px;
-    }
-    .main h1 {
-        font-size: 1.5em;
-    }
-}
+
 
 
 *::selection {
@@ -503,12 +458,12 @@ html {
 
 #vaccine-line-container {
     height: 40px;
-    width: 1000px;
+    width: 95vw;
     border-radius: 20px;
     border: 2px solid white;
     position: fixed;
     bottom:0;
-    left: calc((100vw - 1000px)/2);
+    left: calc((5vw)/2);
     margin: 5px auto;
     color: rgb(29, 12, 92);
     text-align: center;
@@ -593,4 +548,96 @@ html {
 .restart:hover, .to-home:hover {
     background: white;
     color: rgb(29, 12, 92);
+}
+
+
+
+@media (max-width: 720px) {
+    * {
+        font-size: 1em;
+    }
+    h1 {
+        font-size: 0.7em;
+    }
+    .hdiv div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        flex-wrap: nowrap;
+        justify-content: center;
+        flex-direction: column-reverse;
+        
+    } 
+    .hdiv div h2 {
+        font-size: 1em;
+    }
+    .hdiv-img {
+        padding: 20px;
+        width: 100%
+        
+    }
+    .hdiv-span {
+        padding: 0px;
+        width: 100%;
+    }
+    .games-menu-container{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 20vh 20vh 20vh;
+        
+       justify-content: space-around;
+    }  
+    .games-menu-item-description {
+        top: 0;
+    }
+    .main {
+        padding: 20px 40px;
+    }
+    .main h1 {
+        font-size: 1.5em;
+    }
+
+
+    .menu {
+        font-size: 0.7em;
+    }
+    .menu h1 {
+        font-size: 1.6em;
+    }
+    .menu img {
+        display: none;
+    }
+    .game-space-container {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, calc(-55% + 40px));
+        display: flex;
+        justify-content: center;
+        
+        flex-direction: column;
+    }
+    .container {
+        width: 100%;
+        margin: 20px 0px;
+        display: flex;
+        
+        justify-content: center;
+        flex-direction: column;
+        
+        font-size: 1.2em;
+    }
+    
+    
+    
+    .achivment-container {
+        width: 100%;
+        margin-bottom: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        
+    }
 }
