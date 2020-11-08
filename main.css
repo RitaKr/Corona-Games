@@ -187,6 +187,9 @@ html {
     background-image: linear-gradient(to bottom, rgb(113,48,253), rgb(152,45,156));
 
 }
+#maze {
+    background-image: linear-gradient(to bottom, rgb(0, 90, 102), rgb(28, 46, 146));
+}
 
 
 @media (max-width: 540px) {
