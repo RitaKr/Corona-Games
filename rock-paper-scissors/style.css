@@ -148,9 +148,7 @@ body, .game-title {
         text-align: center;
         margin-top: 20px;
     }
-    .choice{
-        
-    }
+    
     .choice img {
         width: 15vw;
         filter: invert();

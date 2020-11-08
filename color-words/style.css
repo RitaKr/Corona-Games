@@ -19,10 +19,8 @@ body {
 .answer-container {
     display: flex;
     flex-wrap: wrap;
-    justify-self: center;
-    align-self: center;
-    align-items: space-around;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
     margin: 0 auto;
 }
 .answer {
@@ -32,12 +30,13 @@ body {
     border-bottom: 40px solid rgb(29, 12, 92);
     background: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
-    margin: 5vw;
+    margin: 8px;
     transition: all .3s ease;
 }
 .answer:hover {
     transform: scale(1.05);
 }
+
 
 @media (max-width: 720px) {
     .answer-container {

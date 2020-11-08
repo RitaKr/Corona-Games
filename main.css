@@ -554,9 +554,7 @@ html {
 
 
 @media (max-width: 720px) {
-    * {
-        font-size: 1em;
-    }
+   
     h1 {
         font-size: 0.7em;
     }
