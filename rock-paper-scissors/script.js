@@ -143,6 +143,7 @@ function game(userChoice) {
         <button onclick="location.reload()" class="restart">Заново</button>
         <div id="endgame-achivments"></div>
         `;
+        menuEl.style.display = 'none';
         const endgameAchivments = document.getElementById('endgame-achivments');
         sessionStorage.RPSwinsStraight++;
         console.log(sessionStorage.RPSwinsStraight);

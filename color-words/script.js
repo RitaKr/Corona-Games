@@ -126,6 +126,7 @@ function gameOver(reason){
     <button onclick="location.reload()" class="restart">Заново</button>
     <div id="endgame-achivments"></div>
     `;
+    menuEl.style.display = 'none';
     const endgameAchivments = document.getElementById('endgame-achivments');
     endgameEl.style.display = 'flex';
         if (score>=15) {

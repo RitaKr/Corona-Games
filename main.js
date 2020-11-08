@@ -13,6 +13,7 @@ const vaccineValSpan = document.getElementById('vaccine-value');
 const vaccineLine = document.getElementById('vaccine-line');
 const timesPlayedSpan = document.getElementById('times-played');
 const TimesWordEnding = document.getElementById('times-ending');
+const menuEl = document.getElementById('menu');
 
 if (localStorage.tp == null) {
     localStorage.setItem('tp', 0);
