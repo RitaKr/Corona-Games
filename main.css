@@ -555,9 +555,7 @@ html {
 
 @media (max-width: 720px) {
    
-    h1 {
-        font-size: 0.7em;
-    }
+    
     .hdiv {
         padding: 20px 40px;
     }
@@ -655,12 +653,23 @@ html {
     }
     #endgame-achivments div {
         margin: 2vw;
-        width: 45vw;
-        font-size: .8em;
+        width: 40vw;
+        font-size: .7em;
         text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+    }
+    .restart {
+        padding: 15px 20px;
+        border: 2px solid white;
+        
+        font-size: 0.8em;
+        
+    }
+    .end-game h1 {
+        
+        font-size: 1em;
     }
 }
