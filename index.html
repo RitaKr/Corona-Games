@@ -206,13 +206,13 @@ function delCookie(name) {
   setCookie(name,"",-1);
 }
 if (getCookie("counter")) {
-  var count=getCookie("counter")+1;
+  var count= +getCookie("counter")+1;
   setCookie("counter",count,365);
 } else {
   setCookie("counter",1,365);
 }
 
-console.log("Вы зашли на эту страницу "+ +getCookie("counter"));
+console.log("Вы зашли на эту страницу "+getCookie("counter"));
 </script>
 </body>
 </html>
