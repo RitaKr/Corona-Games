@@ -54,7 +54,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>30 очков</th>
+                            <th>30 очков ***</th>
                             <td>
                                 <img src="../images/an.png" title="антисептик">
                                 
@@ -71,7 +71,9 @@
                     </li>
                     <em class="comment">* После преодоления отметки в 15 очков начисляется по 1 предмету (туалетная бумага) за кажое восьмое очко</em>
                     <br>
-                    <em class="comment">** После преодоления отметки в 20 очков начисляется по 1 предмету (маска) за кажое одиннадцатое очко</em>
+                    <em class="comment">** После преодоления отметки в 20 очков начисляется по 1 предмету (маска) за кажое двенадцатое очко</em>
+                    <br>
+                    <em class="comment">*** После преодоления отметки в 30 очков начисляется по 1 предмету (антисептик) за кажое двадцать второе очко</em>
                 </ul>
                 </p>
                 </div>
@@ -92,10 +94,13 @@
             <button class="start" id="start" onclick="startGame('start')">Начать игру</button>
             
             <div class="time-container">
-                <div class="time-left">Время: <span id="time">30s</span></div>
+                <div class="time-left">Время: <span id="time">30s</span>
+                
+                </div>
+                
                 <div class="best-score">Рекорд: <span id="best">0</span></div>
                 <div class="score-container">Счёт: <span id="score">0</span></div>
-            </div>
+            </div><span class="bust-up-span-mistakes"></span><span class="bust-up-span-time"></span>
             <h1 id="word"> </h1>
             <div class="title">Выберите цвет который НАПИСАН выше: </div>
             <div class="answers-container">

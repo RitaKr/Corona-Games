@@ -68,7 +68,8 @@ const scoreEl = document.getElementById('score');
 const timeEl = document.getElementById('time');
 const bestEl = document.getElementById('best');
 const endgameEl = document.getElementById('end-game');
-
+const bustUpSpanTime = document.querySelector('.bust-up-span-time');
+const bustUpSpanMistakes = document.querySelector('.bust-up-span-mistakes');
 //localStorage.clear();
 
 function setGameLocalItems() {
@@ -135,12 +136,12 @@ function gameOver(reason){
             
         }
         if (score>=20) {
-            localStorage.msk= +localStorage.msk + Math.floor(score/11);
+            localStorage.msk= +localStorage.msk + Math.floor(score/12);
             endgameAchivments.innerHTML = endgameAchivments.innerHTML+`<div><p>Вы добыли маски в количестве ${Math.floor(score/11)} шт!</p><img src="../images/msk.png" height="80px"></div>`;
         }
         if (score>=30) {
+            localStorage.an= +localStorage.an + Math.floor(score/22);
             endgameAchivments.innerHTML = endgameAchivments.innerHTML+'<div><p>Вы добыли антисептик!</p><img src="../images/an.png" height="80px"></div>';
-            localStorage.an++;
         } 
         
     //location.reload();
@@ -226,6 +227,7 @@ function startGame(reason) {
     }
     
 }
+let bustVal = '<img src="../images/bust-up.png" class="bust-up-icon">';
 document.querySelectorAll('.answer').forEach(item => {
     item.addEventListener('click',e =>{
         if (item.style.backgroundColor === randomWordObj.color) {
@@ -233,23 +235,43 @@ document.querySelectorAll('.answer').forEach(item => {
             updateScore()
         } else if (mistakeRoot>0) {
             mistakeRoot--;
+            bustUpSpanMistakes.innerHTML =bustVal+ ` право на ошибку (${mistakeRoot})`;
         } else {
             gameOver('wrong');
         } 
 })  
 })
+function updateBustUpInners(bust){
+    if (bust=='tp') {
+        return ` +${time-30}s`
+    } 
+    if (bust=='msk') {
+        return` право на ошибку (${mistakeRoot})`
+    } 
+   /* if (bust=='mistakeRoot') {
+        return ` (${mistakeRoot})`
+    }
+    */
+}
 
 function tpUseActions(){
     localStorage.tp--;
     time+=3;
+    
+    bustUpSpanTime.innerHTML = bustVal + updateBustUpInners('tp');
 }
 function mskUseActions(){
     localStorage.msk--;
     mistakeRoot++;
+    
+    bustUpSpanMistakes.innerHTML = bustVal + updateBustUpInners('msk');
 }
 function anUseActions(){
     localStorage.an--;
     mistakeRoot++;
     time+=10;
+    bustUpSpanTime.innerHTML = bustVal +updateBustUpInners('tp');
+    bustUpSpanMistakes.innerHTML = bustVal +updateBustUpInners('msk');
 }
+
 //localStorage.clear();

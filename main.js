@@ -14,6 +14,22 @@ const vaccineLine = document.getElementById('vaccine-line');
 const timesPlayedSpan = document.getElementById('times-played');
 const TimesWordEnding = document.getElementById('times-ending');
 const menuEl = document.getElementById('menu');
+const rulesBtn = document.querySelector('.rules-span');
+const rulesDiv = document.querySelector('.rules');
+const arrow = document.querySelector('.arrow');
+let isOpen = false;
+rulesBtn.addEventListener('click',()=>{
+
+    if (isOpen){
+        rulesDiv.style = `transform: scaleY(0)`;
+        arrow.style = `transform: rotateX(0deg)`
+        isOpen=false;
+    } else {
+        rulesDiv.style = `transform: scaleY(1)`;
+        arrow.style = `transform: rotateX(180deg)`
+        isOpen=true;
+    }
+})
 
 if (localStorage.tp == null) {
     localStorage.setItem('tp', 0);
@@ -131,6 +147,8 @@ an.addEventListener('click',() =>{
         switch (chosen) {
             case 'tp': 
             if (localStorage.tp>0) {
+            /*    bustVal = tpUseActions()
+                bustUpSpan.innerHTML = bustVal; */
                 tpUseActions()
             } else {
                alert('Нет туалетной бумаги :(');
@@ -140,7 +158,10 @@ an.addEventListener('click',() =>{
             break;
             case 'msk': 
             if (localStorage.msk>0) {
-                mskUseActions()
+            /*    bustVal = mskUseActions()
+                bustUpSpan.innerHTML = bustVal+updateBustUpInners('mistakeRoot');
+                */
+                mskUseActions();
             } else {
                alert('Нет масок :(');
                exchangeBtn.style.opacity = 0.3;
@@ -149,6 +170,8 @@ an.addEventListener('click',() =>{
             break;
             case 'an': 
             if (localStorage.an>0) {
+            /*    bustVal = anUseActions();
+                bustUpSpan.innerHTML = bustVal+updateBustUpInners('mistakeRoot'); */
                 anUseActions()
             } else {
                alert('Нет антисептиков :(');
