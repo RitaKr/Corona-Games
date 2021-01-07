@@ -771,6 +771,9 @@ html {
         font-size: 2.7vw;
         
     }
+    .main-achivment table {
+        font-size: 4vw;
+    }
     .stat-table th {
         padding: 1.5vw;
     }
