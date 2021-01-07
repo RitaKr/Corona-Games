@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <link rel="stylesheet" href="main.css">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="jquery-3.3.1.js"></script>
     <title>CORONA-GAMES</title>
@@ -98,7 +99,73 @@
     </a>
 </div>
 
+<div id="stat-div">
+    <h1>Ваша статистика</h1>
+    <table class="stat-table">
+        <tr>
+            <th></th>
+            <th>Рекорд</th>
+            <th>Раз сыграно</th>
+            <th>Побед</th>
+            <th>Ничьих</th>
+            <th>Поражений</th>
+        </tr>
+        <tr>
+            <th>Color Words</th>
+            <td id="CWbestScore"></td>
+            <td id="CWtimesPlayed"></td>
+            <td> - </td>
+            <td> - </td>
+            <td> - </td>
+        </tr>
+        <tr>
+            <th>Rock Paper Scissors</th>
+            <td> - </td>
+            <td id="RPStimesPlayed"></td>
+            <td id="RPSwins"></td>
+            <td id="RPSdraws"></td>
+            <td id="RPSloses"></td>
+        </tr>
+    </table>
+</div>
 
+<div class="achivment-container, main-achivment">
+    <h1>Ваши запасы</h1>
+    <table class="achivment-table">
+        <tr>
+            
+            <th>В наличии</th>
+            <th>Предмет</th>
+            <th>Цена вакцины</th>
+        </tr>
+        <tr>
+            
+            <td><span id="tp"></span></td>
+            <td>
+                <img src="images/tp.png" height="50px" id="tp" class="achivment-img">
+            </td>
+            <td>5</td>
+        </tr>
+        <tr>
+            
+            <td><span id="msk"></span></td>
+            <td>
+                <img src="images/msk.png" height="50px" id="msk" class="achivment-img">
+            </td>
+            <td>3</td>
+            
+        </tr>
+        <tr>
+            
+            <td><span id="an"></span></td>
+            <td>
+                <img src="images/an.png" height="50px" id="an" class="achivment-img">
+            </td>
+            <td>1</td>
+        </tr>
+    </table>
+
+</div>
 </div>
 
 <script type="text/javascript">
@@ -214,5 +281,31 @@ if (getCookie("counter")) {
 
 console.log("Вы зашли на эту страницу "+getCookie("counter"));
 </script>
+<script>
+    const CWbestScore = document.getElementById('CWbestScore');
+const CWtimesPlayed = document.getElementById('CWtimesPlayed');
+const RPStimesPlayed = document.getElementById('RPStimesPlayed');
+const RPSwins = document.getElementById('RPSwins');
+const RPSdraws = document.getElementById('RPSdraws');
+const RPSloses = document.getElementById('RPSloses');
+const tp = document.getElementById('tp');
+const an = document.getElementById('an');
+const msk = document.getElementById('msk');
+
+function updateStatTableInners(){
+
+    CWbestScore.innerHTML = localStorage.CWbestScore; 
+    CWtimesPlayed.innerHTML = localStorage.CWtimesPlayed; 
+    RPStimesPlayed.innerHTML = localStorage.RPStimesPlayed; 
+    RPSwins.innerHTML = localStorage.RPSwins;
+    RPSdraws.innerHTML = localStorage.RPSdraws; 
+    RPSloses.innerHTML = localStorage.RPSloses;
+    tp.innerHTML = localStorage.tp;
+    msk.innerHTML = localStorage.msk;
+    an.innerHTML = localStorage.an;
+}
+updateStatTableInners()
+</script>
+
 </body>
 </html>

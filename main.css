@@ -129,7 +129,7 @@ html {
 .games-menu-container{
     display: grid;
     grid-template-columns: 25% 25% 25%;
-    grid-template-rows: 30vh 30vh 30vh;
+    grid-template-rows: 30vh;
     
    justify-content: space-around;
 }
@@ -278,10 +278,17 @@ html {
     box-shadow: 0 20px 40px rgba(29, 12, 92,.8);
     font-size: 0.8em;
     overflow-y: scroll;
-    height: 100vh;
+
     transform: scaleY(0);
     transform-style: preserve-3d;
     transform-origin: top;
+
+}
+.rules ul {
+    list-style-position: outside;
+}
+.rules li {
+    padding: 0.6vw 0;
 }
 .rules h2 {
     text-align: center;
@@ -375,9 +382,8 @@ html {
     margin: 0;
     margin-bottom: 10px;
 }
-.achivment-table {
+.achivment-table, .stat-table {
     vertical-align: middle;
-    
     text-align: center;
     border-collapse: collapse;
 }
@@ -386,6 +392,7 @@ html {
     font-size: 0.6em;
     vertical-align: bottom;
 }
+
 .achivment-table td:nth-child(3), .achivment-table th:nth-child(3)  {
     color: rgba(255, 255, 255, 0.5);
     
@@ -399,12 +406,16 @@ html {
     border-bottom: 1px solid white;
 }
 */
-.achivment-table img {
+.achivment-table img, .chosen-img {
     cursor: pointer;
-    transition: all .2s ease-out;
+    transition: all .25s ease-out;
 }
+
 .achivment-table img:hover {
     transform: scale(1.2);
+}
+.chosen-img:hover {
+    transform: scale(0.9);
 }
 .exchange-container {
     display: flex;
@@ -429,6 +440,7 @@ html {
     flex-direction: row;
     justify-content: space-between;
 }
+
 .excange-btn {
     display: block;
     padding: 10px 15px;
@@ -450,6 +462,7 @@ html {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    
 }
 #endgame-achivments div {
     margin: 10px;
@@ -475,6 +488,7 @@ html {
     text-align: center;
     background: rgba(255, 255, 255, 0.3);
     overflow: hidden;
+    backdrop-filter: blur(10px);
 }
 #vaccine-line {
     background: linear-gradient(to right, rgb(109, 255, 51),rgb(35, 222, 255));
@@ -485,16 +499,15 @@ html {
     border-radius: 20px;
     position: absolute;
     top:0;
-    left: 0px;
+    left: -1px;
     transition: all .3s ease;
-    z-index: 1;
+    z-index: -1;
+    
 }
 .vaccine-line-title {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+   
     margin: 0 auto;
-    z-index: 5000;
+    z-index: 500;
 }
 .start, .set-progress {
     display: inline-block;
@@ -533,9 +546,11 @@ html {
     flex-direction: column;
     justify-content: center;
     color: white;
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
-    z-index: 50;
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
+    -o-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
 }
 .end-game h1 {
     text-align: center;
@@ -550,17 +565,69 @@ html {
     color: white;
     background: none;
     transition: all .3s ease-in;
+    
+}
+.end-game h1, .end-game p, .restart, #endgame-achivments {
+    z-index: 100;
 }
 .restart:hover, .to-home:hover {
     background: white;
     color: rgb(29, 12, 92);
 }
 
+.confetti {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+    transition: all 4.3s ease-out;
+}
+.record {
+    margin: 0;
+    padding: 0;
+    line-height: 0.1em;
+    
+    color:rgb(230, 185, 41)
+}
 
+.stat-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
+.stat-table, .main-achivment table {
+    align-self: center;
+    margin: 0 auto;
+    font-size: 1.1em;
+}
+.stat-table th, .main-achivment table th {
+    border: none;
+    vertical-align: bottom;
+    font-size: 1.1em;
+    color:rgba(255, 255, 255, 1)
+}
+.stat-table th:first-child {
+    text-align: left;
+}
+.main-achivment {
+    background: none;
+    color:rgba(255, 255, 255, 0.8);
+}
+
+.main-achivment table .achivment-img:hover {
+    transform: scale(1);
+}
+.main-achivment table .achivment-img {
+    cursor: auto;
+}
 @media (max-width: 720px) {
    
-    
+    .menu {
+        position: sticky;
+        top: 0px;
+    }
     .hdiv {
         padding: 20px 40px;
     }
@@ -589,19 +656,22 @@ html {
     .games-menu-container{
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: 20vh 20vh 20vh;
-        
+        grid-template-rows: 25vh 25vh 25vh;
+        font-size: 6vw;
+        padding: 2vw;
        justify-content: space-around;
     }  
     .games-menu-item-description {
         top: -15px;
         font-size: 0.6em;
+        height: 100%;
+        width: 100%;
     }
     .main {
-        padding: 20px 40px;
+        padding: 5vw 7vw;
     }
     .main h1 {
-        font-size: 1.5em;
+        font-size: 9vw;
     }
 
 
@@ -614,24 +684,29 @@ html {
     .menu img {
         display: none;
     }
+    .rules {
+        padding: 20px 20px 20px 0;
+    }
     .game-space-container {
-        position: absolute;
-        top: 50%; left: 50%;
-        transform: translate(-50%, -50%);
+        position: relative;
+        
         display: flex;
         justify-content: center;
-        margin-top: 80vw;
+        align-items: center;
+        margin: 0;
+        top: 0; left: 0;
+        transform: translateY( 0);
         flex-direction: column;
     }
     .container {
         width: 90vw;
-        margin: 20px 0px;
+        margin: 4vw 0px;
         display: flex;
         font-size: 1em;
-        justify-content: center;
         flex-direction: column;
-        
-        
+        justify-content: center;
+  
+      
     }
     .time-container {
         font-size: 0.7em;
@@ -640,7 +715,7 @@ html {
     
     .achivment-container {
         width: 90vw;
-        margin-bottom: 50px;
+        margin-bottom: 60px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -676,6 +751,28 @@ html {
     .end-game h1 {
         
         font-size: 1em;
+    }
+    .vaccine-line-title {
+        font-size: 0.8em;
+    }
+    .to-home {
+        padding: 2vw 3vw;
+    }
+    .confetti {
+        height: 100vh;
+        width: initial;
+        
+    }
+    .record, .end-game p {
+        font-size: 0.9em;
+    }
+    .stat-table {
+        margin: 0;
+        font-size: 2.7vw;
+        
+    }
+    .stat-table th {
+        padding: 1.5vw;
     }
 }
 

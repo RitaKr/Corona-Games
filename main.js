@@ -17,15 +17,19 @@ const menuEl = document.getElementById('menu');
 const rulesBtn = document.querySelector('.rules-span');
 const rulesDiv = document.querySelector('.rules');
 const arrow = document.querySelector('.arrow');
+
+
 let isOpen = false;
 rulesBtn.addEventListener('click',()=>{
 
     if (isOpen){
-        rulesDiv.style = `transform: scaleY(0)`;
+        rulesDiv.style = `transform: scaleY(0);
+        height: calc(100vh - ${menuEl.clientHeight}px)`;
         arrow.style = `transform: rotateX(0deg)`
         isOpen=false;
     } else {
-        rulesDiv.style = `transform: scaleY(1)`;
+        rulesDiv.style = `transform: scaleY(1);
+        height: calc(100vh - ${menuEl.clientHeight}px)`;
         arrow.style = `transform: rotateX(180deg)`
         isOpen=true;
     }
@@ -43,11 +47,15 @@ if (localStorage.an == null) {
 if (localStorage.vaccine == null) {
     localStorage.setItem('vaccine', 0);
 } 
+if (sessionStorage.RPSwinsStraight == null) {
+    sessionStorage.setItem('RPSwinsStraight',0);
+}
 setGameLocalItems()
 let achivment ='';
 let chosen;
 let chosenImg;
 updateAllLocalInners();
+
 function updateAllLocalInners() {
     updateGameLocalInners();
     tpSpan.innerHTML= localStorage.tp;
@@ -55,6 +63,7 @@ function updateAllLocalInners() {
     anSpan.innerHTML= localStorage.an;
     vaccineValSpan.innerHTML= localStorage.vaccine;
     vaccineLine.style.width = `${localStorage.vaccine}%`;
+    
 }
 
 function NullProgress() {
@@ -70,7 +79,9 @@ function NullProgress() {
     localStorage.setItem('RPSdraws', 0);
     localStorage.setItem('RPSloses', 0);
     localStorage.setItem('RPStimesPlayed', 0);
+    sessionStorage.setItem('RPSwinsStraight', 0);
     updateAllLocalInners()
+    
     }
 }
 document.querySelectorAll('.achivment-img').forEach(img =>{
@@ -182,6 +193,7 @@ an.addEventListener('click',() =>{
         }
         updateAllLocalInners();
         
+        
     })
 
     exchangeBtn2.addEventListener('click', () =>{
@@ -222,4 +234,5 @@ an.addEventListener('click',() =>{
             break;
         }
         updateAllLocalInners();
+        
     })

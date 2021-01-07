@@ -72,6 +72,8 @@ const bustUpSpanTime = document.querySelector('.bust-up-span-time');
 const bustUpSpanMistakes = document.querySelector('.bust-up-span-mistakes');
 //localStorage.clear();
 
+
+
 function setGameLocalItems() {
     if (localStorage.CWtimesPlayed == null) {
         localStorage.setItem('CWtimesPlayed', 0);
@@ -123,11 +125,20 @@ function gameOver(reason){
     }
     endgameEl.innerHTML = `
     <h1>${gameoverTitle}</h1>
-    <p>Твой счёт ${score}</p>
+    
+    `;
+    if (localStorage.CWbestScore<score) {
+        localStorage.CWbestScore=score;
+        endgameEl.innerHTML += `<h3 class="record">Новый рекорд!</h3><img src="../images/confetti2.gif" class="confetti">`
+        setTimeout(()=>{
+            document.querySelector('.confetti').style.opacity = '0';
+            console.log('fade')
+        }, 2300)
+    } 
+    endgameEl.innerHTML += `<p>Твой счёт ${score}</p>
     <button onclick="location.reload()" class="restart">Заново</button>
     <div id="endgame-achivments"></div>
     `;
-    menuEl.style.display = 'none';
     const endgameAchivments = document.getElementById('endgame-achivments');
     endgameEl.style.display = 'flex';
         if (score>=15) {
@@ -147,9 +158,7 @@ function gameOver(reason){
     //location.reload();
     console.log('score',score);
 
-    if (localStorage.CWbestScore<score) {
-        localStorage.CWbestScore=score;
-    } 
+    
     console.log('best score',localStorage.CWbestScore);
     localStorage.CWtimesPlayed++;
     updateGameLocalInners()

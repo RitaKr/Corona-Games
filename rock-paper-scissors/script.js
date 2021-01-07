@@ -23,7 +23,7 @@ const drawsSpan = document.getElementById('draws');
 const losesSpan = document.getElementById('loses');
 
 
-if (sessionStorage.RPSwinsStraight === null) {
+if (sessionStorage.RPSwinsStraight === null || sessionStorage.RPSwinsStraight === NaN) {
     sessionStorage.setItem('RPSwinsStraight',0);
 }
 function setGameLocalItems() {
@@ -143,7 +143,7 @@ function game(userChoice) {
         <button onclick="location.reload()" class="restart">Заново</button>
         <div id="endgame-achivments"></div>
         `;
-        menuEl.style.display = 'none';
+        //menuEl.style.display = 'none';
         const endgameAchivments = document.getElementById('endgame-achivments');
         sessionStorage.RPSwinsStraight++;
         console.log(sessionStorage.RPSwinsStraight);
