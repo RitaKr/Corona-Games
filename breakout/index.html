@@ -2,7 +2,7 @@
 <html lang="ru">
     <head>
         <meta charset="utf-8">
-        <title>Color words</title>
+        <title>BREAKOUT</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../main.css">
         <link rel="stylesheet" href="style.css">
@@ -17,35 +17,46 @@
                     <p>
                     <ul>
                         <li>
-                        В этой игре Вам надо нажимать на кнопку того цвета, который написан сверху. 
-                        Главное не перепутать цвет которым слово ОКРАШЕНО с цветом который оно ОБОЗНАЧАЕТ. В этом то и хитрость.
+                        В этой игре Вам надо двигать досточку внизу поля и отбивать шарик так, чтоб он разбивал кирпичи вверху поля и не падал на пол.
                         </li>
                         <li> 
-                        Длительность игры 30 секунд. 
+                        Управление осуществляется с помощью клавиш 
+                        <img src="../images/kboard-arr-left.png" height="30px"> 
+                        <img src="../images/kboard-arr-right.png" height="30px"> на клавиатуре. 
                         </li>
                         <li>
-                        За каждый правильный ответ начисляется очко. 
+                        За каждый разбитый кирпич начисляется очко. 
+                        </li>
+                        <li>
+                            Когда все кирпичи разбиты, Вы переходите на новый уровень. С каждым уровнем мяч ускоряется.
+                        </li>
+                        <li>
+                           Чтоб Вы успели подготовиться к игре, шарик начинает двигаться на секунду позже начала игры.
                         </li>
                         <li> 
-                        Ваша цель - собрать как можно больше очков за 30 секунд. 
-                        По истечению времени или неправильном ответе игра заканчивается и счёт 
-                        аннулируется.
+                        Игра заканчивается, когда мяч падает мимо досточки.
+                        </li>
+                        <li> 
+                            Цвета в игре генерируются рандомно. Но вы можете выбрать тему сами:
+                            <button class="light-btn" onclick="setTheme('light'); generateColors();">Светлая</button>
+                            <button class="dark-btn" onclick="setTheme('dark'); generateColors();">Тёмная</button>
+                            <br>(По умолчанию стоит светлая)
                         </li>
                         <li>  
                     За преодоление отметок в определенное количество очков полагаются награды:
                     <table>
                         <tr>
-                            <th>15 очков *</th>
+                            <th>за каждые 15 очков</th>
                             <td>
                                 <img src="../images/tp.png" title="туалетная бумага">
                                 
-                                <em class="comment">Можно обменять на +3 с к общему времени (действует 1 игру)</em>
+                                <em class="comment">Можно обменять на удлинение досточки до 100рх (действует 1 игру)</em>
                                 <br>
                                 <em class="comment">1 вложение в вакцину = 5 рулонов туалетной бумаги</em>
                             </td>
                         </tr>
                         <tr>
-                            <th>20 очков **</th>
+                            <th>За каждые 30 очков</th>
                             <td>
                                 <img src="../images/msk.png" title="маска">
                                 
@@ -55,11 +66,11 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>30 очков ***</th>
+                            <th>За каждый новый уровень</th>
                             <td>
                                 <img src="../images/an.png" title="антисептик">
                                 
-                                <em class="comment">Можно обменять на право ошибки и +10 с к общему времени (действует 1 игру)</em>
+                                <em class="comment">Можно обменять на замедление шарика на 2 и удлинение доски на 10рх (действует 1 игру)</em>
                                 <br>
                                 <em class="comment">1 вложение в вакцину = 1 антисептик</em>
                             </td>
@@ -70,18 +81,19 @@
                         Предметы так же можно вложить в вакцину от коронавируса, которая должна спасти всё население. Каждое вложение спасает 1% населения. 
                         Цены указаны в таблице. 
                     </li>
+                    <!--
                     <em class="comment">* После преодоления отметки в 15 очков начисляется по 1 предмету (туалетная бумага) за кажое восьмое очко</em>
                     <br>
                     <em class="comment">** После преодоления отметки в 20 очков начисляется по 1 предмету (маска) за кажое двенадцатое очко</em>
                     <br>
                     <em class="comment">*** После преодоления отметки в 30 очков начисляется по 1 предмету (антисептик) за кажое двадцать второе очко</em>
-                </ul>
+                --></ul>
                 </p>
                 </div>
             </span>
             <div>
                 <img src="../images/covid.png" class="covid-icon">
-                <h1 class="game-title">Color words</h1>
+                <h1 class="game-title">BREAKOUT</h1>
                 <div class="times-played">Сыграно Вами <span id="times-played"></span> раз<span id="times-ending"></span></div>
             </div>
             
@@ -92,26 +104,20 @@
         <div class="container">
             
             <button class="set-progress" id="set-progress" onclick="NullProgress()">Аннулировать прогресс</button>
-            <button class="start" id="start" onclick="startGame('start')">Начать игру</button>
+            <button class="start" id="start" onclick="gameStart()">Начать игру</button>
             
             <div class="time-container">
-                <div class="time-left">Время: <span id="time">30s</span>
-                
-                </div>
                 
                 <div class="best-score">Рекорд: <span id="best">0</span></div>
+                <div class="best-level">Рекордный уровень: <span id="best-level">1</span></div>
                 <div class="score-container">Счёт: <span id="score">0</span></div>
             </div>
+            <span id="bust-up-span-width" class="bust"></span>
             <span id="bust-up-span-mistakes" class="bust"></span>
-            <span id="bust-up-span-time" class="bust"></span>
-            <h1 id="word"> </h1>
-            <div class="title">Выберите цвет который НАПИСАН выше: </div>
-            <div class="answers-container">
-            <button id="btn1" class="answer"></button>
-            <button id="btn2" class="answer"></button>
-            <button id="btn3" class="answer"></button>
-            <button id="btn4" class="answer"></button>
-            </div>
+            <span id="bust-up-span-speed" class="bust"></span>
+            <canvas id="canvas" width="710" height="380">
+
+            </canvas>
         </div>
         
         <div class="achivment-container">

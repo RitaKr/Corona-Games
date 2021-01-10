@@ -88,13 +88,15 @@
             Игра ограничена количеством раундов, то есть заканчивается по окончанию последнего раунда.
         </p>
     </a>
-    <a class="games-menu-item-container" id="maze" href="maze/index.html" target="open-game-maze">
+    <a class="games-menu-item-container" id="breakout" href="breakout/index.html" target="open-game-breakout">
         <div class="games-menu-item"  >
-            <h2>Maze</h2>
+            <h2>Breakout</h2>
         
         </div>
-        <p class="games-menu-item-description" id="maze-description">
-            Description of the game
+        <p class="games-menu-item-description" id="breakout-description">
+            В этой игре Вам надо двигать досточку внизу поля и отбивать шарик так, чтоб он разбивал кирпичи вверху поля и не падал на пол.
+        <br><br>
+        (Доступно только на ПК)
         </p>
     </a>
 </div>
@@ -104,27 +106,39 @@
     <table class="stat-table">
         <tr>
             <th></th>
-            <th>Рекорд</th>
             <th>Раз сыграно</th>
+            <th>Рекорд</th>
+            <th>Рекордный уровень</th>
             <th>Побед</th>
             <th>Ничьих</th>
             <th>Поражений</th>
         </tr>
         <tr>
             <th>Color Words</th>
-            <td id="CWbestScore"></td>
             <td id="CWtimesPlayed"></td>
+            <td id="CWbestScore"></td>
+            <td> - </td>
             <td> - </td>
             <td> - </td>
             <td> - </td>
         </tr>
         <tr>
             <th>Rock Paper Scissors</th>
-            <td> - </td>
             <td id="RPStimesPlayed"></td>
+            <td> - </td>
+            <td> - </td>
             <td id="RPSwins"></td>
             <td id="RPSdraws"></td>
             <td id="RPSloses"></td>
+        </tr>
+        <tr>
+            <th>Rock Paper Scissors</th>
+            <td id="BOtimesPlayed"></td>
+            <td id="BObestScore"></td>
+            <td id="BObestLevel"></td>
+            <td> - </td>
+            <td> - </td>
+            <td> - </td>
         </tr>
     </table>
 </div>
@@ -282,8 +296,11 @@ if (getCookie("counter")) {
 console.log("Вы зашли на эту страницу "+getCookie("counter"));
 </script>
 <script>
-    const CWbestScore = document.getElementById('CWbestScore');
+    const BObestScore = document.getElementById('BObestScore');
+const BOtimesPlayed = document.getElementById('BOtimesPlayed');
+const CWbestScore = document.getElementById('CWbestScore');
 const CWtimesPlayed = document.getElementById('CWtimesPlayed');
+const BObestLevel = document.getElementById('BObestLevel');
 const RPStimesPlayed = document.getElementById('RPStimesPlayed');
 const RPSwins = document.getElementById('RPSwins');
 const RPSdraws = document.getElementById('RPSdraws');
@@ -300,6 +317,9 @@ function updateStatTableInners(){
     RPSwins.innerHTML = localStorage.RPSwins;
     RPSdraws.innerHTML = localStorage.RPSdraws; 
     RPSloses.innerHTML = localStorage.RPSloses;
+    BObestScore.innerHTML = localStorage.BObestScore; 
+    BObestLevel.innerHTML = localStorage.BObestLevel;
+    BOtimesPlayed.innerHTML = localStorage.BOtimesPlayed; 
     tp.innerHTML = localStorage.tp;
     msk.innerHTML = localStorage.msk;
     an.innerHTML = localStorage.an;

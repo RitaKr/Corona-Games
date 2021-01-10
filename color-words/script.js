@@ -68,8 +68,8 @@ const scoreEl = document.getElementById('score');
 const timeEl = document.getElementById('time');
 const bestEl = document.getElementById('best');
 const endgameEl = document.getElementById('end-game');
-const bustUpSpanTime = document.querySelector('.bust-up-span-time');
-const bustUpSpanMistakes = document.querySelector('.bust-up-span-mistakes');
+const bustUpSpanTime = document.getElementById('bust-up-span-time');
+const bustUpSpanMistakes = document.getElementById('bust-up-span-mistakes');
 //localStorage.clear();
 
 

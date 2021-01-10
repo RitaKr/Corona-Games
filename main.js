@@ -80,6 +80,9 @@ function NullProgress() {
     localStorage.setItem('RPSloses', 0);
     localStorage.setItem('RPStimesPlayed', 0);
     sessionStorage.setItem('RPSwinsStraight', 0);
+    localStorage.setItem('BObestScore', 0);
+    localStorage.setItem('BOtimesPlayed', 0);
+    localStorage.setItem('BObestLevel', 1);
     updateAllLocalInners()
     
     }

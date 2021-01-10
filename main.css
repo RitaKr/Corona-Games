@@ -5,7 +5,7 @@ body{
     margin: 0;
     padding: 0;
     background-size: 100vw 100vh;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 24px;
 
 }
@@ -191,7 +191,9 @@ html {
 #maze {
     background-image: linear-gradient(to bottom, rgb(0, 90, 102), rgb(28, 46, 146));
 }
-
+#breakout {
+    background-image: linear-gradient(to bottom right, rgb(133,90,92), rgb(142,88,196));
+}
 
 
 
@@ -768,21 +770,64 @@ html {
     }
     .stat-table {
         margin: 0;
-        font-size: 2.7vw;
+        font-size: 2.4vw;
         
     }
     .main-achivment table {
         font-size: 4vw;
     }
     .stat-table th {
-        padding: 1.5vw;
+        padding: 1.1vw;
     }
 }
 
 .bust-up-icon {
-    height: 20px
+    height: 15px
 }
-.bust-up-span-mistakes, .bust-up-span-time {
+.bust {
     color: rgb(255, 137, 41);
-    font-size: 0.9em;
+    font-size: 0.8em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    
+}
+.light-btn {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    background: 
+    linear-gradient(to bottom, transparent calc(100% - 5px), rgb(121, 49, 49) calc(100% - 5px)), rgba(255, 255, 255, 0.5);
+    background-clip: border-box;
+    font-weight: normal;
+    color: rgb(0, 0, 0);
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0  rgba(121, 49, 49, .7);
+    transition: all 0.4s ease;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.dark-btn {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.4);
+    background: 
+    linear-gradient(to bottom, transparent calc(100% - 5px), rgb(252, 104, 104) calc(100% - 5px)), rgba(0, 0, 0, 0.5);
+    background-clip: border-box;
+
+    color: white;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0 rgb(252, 104, 104);
+    transition: all 0.4s ease;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+.light-btn:hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.3);
+}
+.dark-btn:hover {
+    background-color: rgba(0, 0, 0, 1);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
 }
