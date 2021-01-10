@@ -106,15 +106,17 @@ function TouchStart(e) {
   //console.log('TouchStart', e.clientX);
   
 }
+let position = canvas.width / 2 - 40;
 function TouchMove(e) {
   //brick.x = e.clientX;
   //console.log('TouchMove',  e.touches[0].clientX);
   if (e.target==canvas) {
     //console.log('TouchMove',  e.target);
-    let position =e.touches[0].clientX - e.target.offsetLeft;
-    console.log('TouchMove', position);
-    brick.x = position;
-    console.log(brick.x);
+    position =e.touches[0].clientX - e.target.offsetLeft
+    //console.log('TouchMove', position);
+    brick.x = position*2;
+    //console.log(brick.x);
+    
   }
   
 }
@@ -228,6 +230,7 @@ function drawLevel() {
 }
 function moveBrick() {
   brick.x += brick.dx;
+  
   if (brick.x + brick.w > canvas.width) {
     //console.log(brick, canvas.width);
     brick.x = canvas.width - brick.w;

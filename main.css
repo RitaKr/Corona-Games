@@ -292,7 +292,7 @@ html {
     list-style-position: outside;
 }
 .rules li {
-    padding: 0.6vw 0;
+    padding: 0.7vw 0;
 }
 .rules h2 {
     text-align: center;
@@ -765,6 +765,7 @@ em.comment {
     }
     .rules {
         padding: 20px 20px 20px 0;
+        font-size: 1.4em;
     }
     .rules table img {
         width: 25%;
