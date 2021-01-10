@@ -169,15 +169,17 @@ html {
     background: rgb(114, 114, 114);
     padding: 10px;
     color: white;
-    font-size: 2.5vh;
+    font-size: 1.5vw;
     /* transform: translateY(calc(-30vh - 10px)); */
     position: absolute;
-    top: 30vh;
     z-index: 1;
     height: initial;
-    border-radius: 10px;
+    border-radius: 8px;
     transition: all .3s ease;
     opacity: 0;
+    top: -1.52vw;
+        height: calc(100% );
+        width: 100%;
 }
 
 #color-words {
@@ -315,6 +317,10 @@ html {
 }
 .comment {
     font-size: 0.8em;
+
+}
+em.comment {
+    color: rgba(255, 255, 255, 0.8)
 }
 .arrow {
     max-width: 20px;
@@ -624,6 +630,70 @@ html {
 .main-achivment table .achivment-img {
     cursor: auto;
 }
+
+.bust-up-icon {
+    height: 15px
+}
+.bust {
+    color: rgb(255, 137, 41);
+    font-size: 0.8em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    
+}
+.light-btn {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    background: 
+    linear-gradient(to bottom, transparent calc(100% - 5px), rgb(121, 49, 49) calc(100% - 5px)), rgba(255, 255, 255, 0.5);
+    background-clip: border-box;
+    font-weight: normal;
+    color: rgb(0, 0, 0);
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 0  rgba(121, 49, 49, .7);
+    transition: all 0.3s ease;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.dark-btn {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.4);
+    background: 
+    linear-gradient(to bottom, transparent calc(100% - 5px), rgb(252, 104, 104) calc(100% - 5px)), rgba(0, 0, 0, 0.5);
+    background-clip: border-box;
+    color: white;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0 rgb(252, 104, 104);
+    transition: all 0.3s ease;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 10px 0;
+}
+.light-btn:hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.3);
+}
+.dark-btn:hover {
+    background-color: rgba(0, 0, 0, 1);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 720px) {
    
     .menu {
@@ -664,10 +734,9 @@ html {
        justify-content: space-around;
     }  
     .games-menu-item-description {
-        top: -15px;
+        top: -3.7vw;
         font-size: 0.6em;
-        height: 100%;
-        width: 100%;
+        
     }
     .main {
         padding: 5vw 7vw;
@@ -675,19 +744,39 @@ html {
     .main h1 {
         font-size: 9vw;
     }
-
-
     .menu {
-        font-size: 0.7em;
+        font-size: 3.75vw;
+        padding: 0px 20px;
     }
     .menu h1 {
         font-size: 1.6em;
     }
     .menu img {
+        height: 1em;
+    }
+    .to-home {
+        padding: 3vw 3vw;
+    }
+    .covid-icon {
         display: none;
+    }
+    .rules-span {
+        font-size: 0.85em;
     }
     .rules {
         padding: 20px 20px 20px 0;
+    }
+    .rules table img {
+        width: 25%;
+        height: initial
+    }
+    .rules table td, .rules table th {
+        display: flex;
+        align-items: center;
+        
+    }
+    .rules table th {
+        background: rgba(255, 255, 255, 0.3);
     }
     .game-space-container {
         position: relative;
@@ -711,7 +800,7 @@ html {
       
     }
     .time-container {
-        font-size: 0.7em;
+        font-size: 3.6vw;
     }
     
     
@@ -757,9 +846,7 @@ html {
     .vaccine-line-title {
         font-size: 0.8em;
     }
-    .to-home {
-        padding: 2vw 3vw;
-    }
+    
     .confetti {
         height: 100vh;
         width: initial;
@@ -779,55 +866,10 @@ html {
     .stat-table th {
         padding: 1.1vw;
     }
-}
-
-.bust-up-icon {
-    height: 15px
-}
-.bust {
-    color: rgb(255, 137, 41);
-    font-size: 0.8em;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    
-}
-.light-btn {
-    padding: 15px 25px;
-    border: none;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.5);
-    background: 
-    linear-gradient(to bottom, transparent calc(100% - 5px), rgb(121, 49, 49) calc(100% - 5px)), rgba(255, 255, 255, 0.5);
-    background-clip: border-box;
-    font-weight: normal;
-    color: rgb(0, 0, 0);
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 0  rgba(121, 49, 49, .7);
-    transition: all 0.4s ease;
-    font-size: 1.2em;
-    cursor: pointer;
-}
-
-.dark-btn {
-    padding: 15px 25px;
-    border: none;
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.4);
-    background: 
-    linear-gradient(to bottom, transparent calc(100% - 5px), rgb(252, 104, 104) calc(100% - 5px)), rgba(0, 0, 0, 0.5);
-    background-clip: border-box;
-
-    color: white;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 0 rgb(252, 104, 104);
-    transition: all 0.4s ease;
-    font-size: 1.2em;
-    cursor: pointer;
-}
-.light-btn:hover {
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.3);
-}
-.dark-btn:hover {
-    background-color: rgba(0, 0, 0, 1);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
+    .bust-up-icon {
+        height: 0.7em
+    }
+    .bust {
+        font-size: 0.6em;        
+    }
 }

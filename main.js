@@ -50,6 +50,7 @@ if (localStorage.vaccine == null) {
 if (sessionStorage.RPSwinsStraight == null) {
     sessionStorage.setItem('RPSwinsStraight',0);
 }
+
 setGameLocalItems()
 let achivment ='';
 let chosen;

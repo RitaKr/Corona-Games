@@ -16,28 +16,32 @@ let themeObj = {}
 function setTheme(theme) {
   if (theme=='light') {
     themeObj.bg = 'rgba(255, 255, 255, .5)';
-    themeObj.min = 15;
-    themeObj.max = 120;
+    themeObj.min = 25;
+    themeObj.max = 115;
   } 
   if (theme=='dark') {
     themeObj.bg = 'rgba(0, 0, 0, .6)';
-    themeObj.min = 90;
-    themeObj.max = 150;
+    themeObj.min = 100;
+    themeObj.max = 140;
   }
+  localStorage.themeMax = themeObj.max;
+  localStorage.themeMin = themeObj.min;
+  localStorage.themeBg = themeObj.bg;
+  generateColors();
 }
-setTheme('light');
-//generateColors();
+//setTheme('light');
+generateColors();
 function generateColors() {
   for (var i=0; i<2; i++){
-    let r = Math.floor(Math.random()*(themeObj.max+1))+themeObj.min;
-    let g = Math.floor(Math.random()*(themeObj.max+1))+themeObj.min;
-    let b = Math.floor(Math.random()*(themeObj.max+1))+themeObj.min;
+    let r = Math.floor(Math.random()*( +localStorage.themeMax+1))+ +localStorage.themeMin;
+    let g = Math.floor(Math.random()*( +localStorage.themeMax+1))+ +localStorage.themeMin;
+    let b = Math.floor(Math.random()*( +localStorage.themeMax+1))+ +localStorage.themeMin;
     let color = 'rgb('+r+','+g+','+b+')';
     colorsArr[i] = color;
     
   }
-  canvas.style.background = themeObj.bg;
-  console.log(themeObj, colorsArr);
+  canvas.style.background = localStorage.themeBg;
+  console.log(localStorage.theme, colorsArr);
 }
 
 
@@ -50,9 +54,24 @@ function setGameLocalItems() {
   } 
   if (localStorage.BObestLevel== null) {
     localStorage.setItem('BObestLevel', 1);
-} 
+  }
+  if (localStorage.themeMax== null) {
+    localStorage.setItem('themeMax', 115);
+  }
+  if (localStorage.themeMin== null) {
+    localStorage.setItem('themeMin', 25);
+  }  
+  if (localStorage.themeBg== null) {
+      localStorage.setItem('themeBg', 'rgba(255, 255, 255, .5)');
+    
+  }
 }
-
+/*
+localStorage.removeItem('theme');
+localStorage.removeItem('themeMin');
+localStorage.removeItem('themeBg');
+localStorage.removeItem('themeMax');
+*/
 function updateGameLocalInners() {
   bestEl.innerHTML = localStorage.BObestScore;
   bestLevEl.innerHTML = localStorage.BObestLevel;
@@ -82,8 +101,39 @@ function keyUp(e) {
     brick.dx = 0;
   }
 }
-document.addEventListener("keydown", keyDown);
+function TouchStart(e) {
+  //brick.x = e.clientX;
+  //console.log('TouchStart', e.clientX);
+  
+}
+function TouchMove(e) {
+  //brick.x = e.clientX;
+  //console.log('TouchMove',  e.touches[0].clientX);
+  if (e.target==canvas) {
+    //console.log('TouchMove',  e.target);
+    let position =e.touches[0].clientX - e.target.offsetLeft;
+    console.log('TouchMove', position);
+    brick.x = position;
+    console.log(brick.x);
+  }
+  
+}
+function TouchEnd(e) {
+  //brick.x = e.clientX;
+  //console.log('TouchEnd', e.clientX);
+  
+}
+
+
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+  // код для мобильных устройств
+  document.addEventListener("touchmove", TouchMove);
+  
+} else {
+  document.addEventListener("keydown", keyDown);
 document.addEventListener("keyup", keyUp);
+}
+
 /*
 ctx.fillRect(100, 100, 200, 100); //x, y, width, height (px)
 ctx.fillStyle = "blue";
@@ -133,6 +183,12 @@ for (let i = 0; i < brickRowCount; i++) {
 console.log(bricks);
 draw();
 
+
+function makeSound(name){
+  let sound = document.createElement('audio');
+  sound.src = `../sounds/${name}.wav`;
+  sound.play();
+}
 
 
 function drawBricks() {
@@ -211,6 +267,8 @@ function moveBall() {
           ball.y + ball.size > brick.y &&
           ball.y - ball.size < brick.y + brick.h
         ) {
+          //makeSound('Нененененененееенененеене');
+          //makeSound('ААААА1');
           brick.visible = false;
           ball.dy *= -1;
           increaseScore();
@@ -223,6 +281,7 @@ function moveBall() {
       mistakeRoot--;
       bustUpSpanMistakes.innerHTML =bustVal+ ` право на ошибку (${mistakeRoot})`;
     } else{
+      //makeSound('Иди в баню');
       gameOver();
       
     }
@@ -267,6 +326,7 @@ function update() {
   moveBrick();
   draw();
   requestAnimationFrame(update);
+  
 }
 function updateBall() {
   moveBrick();
@@ -276,7 +336,6 @@ function updateBall() {
 }
 function gameStart() {
   isGameOver = false;
-  generateColors();
   update()
   setTimeout(()=>{
     updateBall()

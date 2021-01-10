@@ -38,41 +38,45 @@
                         </li>
                         <li> 
                             Цвета в игре генерируются рандомно. Но вы можете выбрать тему сами:
-                            <button class="light-btn" onclick="setTheme('light'); generateColors();">Светлая</button>
-                            <button class="dark-btn" onclick="setTheme('dark'); generateColors();">Тёмная</button>
+                            <br>
+                            <button class="light-btn" onclick="setTheme('light');">Светлая</button>
+                            <button class="dark-btn" onclick="setTheme('dark'); ">Тёмная</button>
                             <br>(По умолчанию стоит светлая)
                         </li>
                         <li>  
                     За преодоление отметок в определенное количество очков полагаются награды:
                     <table>
                         <tr>
-                            <th>за каждые 15 очков</th>
+                            <th>За каждые 15 очков</th>
                             <td>
-                                <img src="../images/tp.png" title="туалетная бумага">
-                                
-                                <em class="comment">Можно обменять на удлинение досточки до 100рх (действует 1 игру)</em>
-                                <br>
-                                <em class="comment">1 вложение в вакцину = 5 рулонов туалетной бумаги</em>
+                                <img src="../images/tp.png" title="туалетная бумага" alt="туалетная бумага">
+                                <span>
+                                    <p class="comment">Можно обменять на удлинение досточки до 100рх (действует 1 игру)</p>
+                                    
+                                    <em class="comment">1 вложение в вакцину = 5 рулонов туалетной бумаги</em>
+                                </span>
                             </td>
                         </tr>
                         <tr>
                             <th>За каждые 30 очков</th>
                             <td>
-                                <img src="../images/msk.png" title="маска">
-                                
-                                <em class="comment">Можно обменять на право ошибки (действует 1 игру)</em>
-                                <br>
-                                <em class="comment">1 вложение в вакцину = 3 маски</em>
+                                <img src="../images/msk.png" title="маска" alt="маска">
+                                <span>
+                                    <p class="comment">Можно обменять на право ошибки (действует 1 игру)</p>
+                                    
+                                    <em class="comment">1 вложение в вакцину = 3 маски</em>
+                                </span>
                             </td>
                         </tr>
                         <tr>
                             <th>За каждый новый уровень</th>
                             <td>
-                                <img src="../images/an.png" title="антисептик">
-                                
-                                <em class="comment">Можно обменять на замедление шарика на 2 и удлинение доски на 10рх (действует 1 игру)</em>
-                                <br>
-                                <em class="comment">1 вложение в вакцину = 1 антисептик</em>
+                                <img src="../images/an.png" title="антисептик" alt="антисептик">
+                                <span>
+                                    <p class="comment">Можно обменять на замедление шарика на 2 и удлинение доски на 10рх (действует 1 игру)</p>
+                                    
+                                    <em class="comment">1 вложение в вакцину = 1 антисептик</em>
+                                </span>
                             </td>
                         </tr>
                     </table>
@@ -97,7 +101,7 @@
                 <div class="times-played">Сыграно Вами <span id="times-played"></span> раз<span id="times-ending"></span></div>
             </div>
             
-            <a href="../index.html" target="home" class="to-home">На главную</a>
+            <a href="../index.html#main" target="home" class="to-home">На главную</a>
         </div>
 
     <div class="game-space-container">
