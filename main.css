@@ -169,7 +169,7 @@ html {
     background: rgb(114, 114, 114);
     padding: 10px;
     color: white;
-    font-size: 1.5vw;
+    font-size: 1.3vw;
     /* transform: translateY(calc(-30vh - 10px)); */
     position: absolute;
     z-index: 1;
@@ -177,7 +177,7 @@ html {
     border-radius: 8px;
     transition: all .3s ease;
     opacity: 0;
-    top: -1.52vw;
+    top: -1.3vw;
         height: calc(100% );
         width: 100%;
 }
@@ -609,12 +609,28 @@ em.comment {
     align-self: center;
     margin: 0 auto;
     font-size: 1.1em;
+    
 }
+/*
+.stat-table {
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+*/
 .stat-table th, .main-achivment table th {
     border: none;
     vertical-align: bottom;
     font-size: 1.1em;
-    color:rgba(255, 255, 255, 1)
+    color:rgba(255, 255, 255, 1);
+    padding: 1.2vw 2vw;
+}
+.stat-table th, .stat-table td {
+    border-right: 2px solid rgba(255, 255, 255, 0.1);
+}
+.stat-table tr:first-child {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+.stat-table th:last-child, .stat-table td:last-child {
+    border-right: none;
 }
 .stat-table th:first-child {
     text-align: left;
