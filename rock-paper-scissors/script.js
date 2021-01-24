@@ -139,10 +139,16 @@ function game(userChoice) {
     if (uScore>cScore) {
         gameResult_div.innerHTML = `
         <h1>Вы победили!</h1>
+        <img src="../images/confetti2.gif" class="confetti">
         <p>Счёт ${uScore}:${cScore}</p>
         <button onclick="location.reload()" class="restart">Заново</button>
         <div id="endgame-achivments"></div>
+        
         `;
+        setTimeout(()=>{
+            document.querySelector('.confetti').style.opacity = '0';
+            console.log('fade')
+        }, 2300)
         //menuEl.style.display = 'none';
         const endgameAchivments = document.getElementById('endgame-achivments');
         sessionStorage.RPSwinsStraight++;
@@ -157,8 +163,7 @@ function game(userChoice) {
             endgameAchivments.innerHTML = endgameAchivments.innerHTML+'<div><p>Вы добыли антисептик!</p><img src="../images/an.png" height="80px"></div>';
         }
         
-        localStorage.RPSwins++; 
-        
+        localStorage.RPSwins++;          
     }
     if (uScore<cScore) {
         gameResult_div.innerHTML = `
@@ -226,15 +231,15 @@ function tpUseActions(){
     let exchangeItem = prompt('На что хотите обменять? Введите м если хотите обменять 3 рулона туалетной бумаги на 1 маску. Либо введите а, если хотите обменять 5 рулонов туалетной бумаги на 1 антисептик')
     console.log(exchangeItem);
     if (exchangeItem=='v'||exchangeItem=='V'||exchangeItem=='m'||exchangeItem=='M'||exchangeItem=='м'||exchangeItem=='М') {
-        if (localStorage.tp>=3){
-            localStorage.tp-=3;
+        if (localStorage.tp>=4){
+            localStorage.tp-=4;
             localStorage.msk++;
         } else {
             alert(`Недостаточно туалетной бумаги :(`)
         }
     } else if (exchangeItem=='a'||exchangeItem=='A'||exchangeItem=='f'||exchangeItem=='F'||exchangeItem=='а'||exchangeItem=='А') {
-        if (localStorage.tp>=5){
-            localStorage.tp-=5;
+        if (localStorage.tp>=6){
+            localStorage.tp-=6;
             localStorage.an++;
         }else {
             alert(`Недостаточно туалетной бумаги :(`)
@@ -247,13 +252,13 @@ function mskUseActions(){
     if (exchangeItem=='т'||exchangeItem=='Т'||exchangeItem=='t'||exchangeItem=='T'||exchangeItem=='n'||exchangeItem=='N') {
         if (localStorage.msk>=1){
             localStorage.msk--;
-            localStorage.tp= +localStorage.tp + 4;
+            localStorage.tp= +localStorage.tp + 3;
         } else {
             alert(`Недостаточно масок :(`)
         }
     } else if (exchangeItem=='a'||exchangeItem=='A'||exchangeItem=='f'||exchangeItem=='F'||exchangeItem=='а'||exchangeItem=='А') {
-        if (localStorage.msk>=2){
-            localStorage.msk-=2;
+        if (localStorage.msk>=3){
+            localStorage.msk-=3;
             localStorage.an++;
         }else {
             alert(`Недостаточно масок :(`)
@@ -267,14 +272,14 @@ function anUseActions(){
     if (exchangeItem=='т'||exchangeItem=='Т'||exchangeItem=='t'||exchangeItem=='T'||exchangeItem=='n'||exchangeItem=='N') {
         if (localStorage.an>=1){
             localStorage.an--;
-            localStorage.tp= +localStorage.tp + 6;
+            localStorage.tp= +localStorage.tp + 5;
         } else {
             alert(`Недостаточно антисептиков :(`)
         }
     } else if (exchangeItem=='v'||exchangeItem=='V'||exchangeItem=='m'||exchangeItem=='M'||exchangeItem=='м'||exchangeItem=='М') {
         if (localStorage.an>=1){
             localStorage.an--;
-            localStorage.msk= +localStorage.msk + 3;
+            localStorage.msk= +localStorage.msk + 2;
         }else {
             alert(`Недостаточно антисептиков :(`)
         }

@@ -17,7 +17,8 @@ const menuEl = document.getElementById('menu');
 const rulesBtn = document.querySelector('.rules-span');
 const rulesDiv = document.querySelector('.rules');
 const arrow = document.querySelector('.arrow');
-
+const playerLevel = document.getElementById('level');
+const playerName = document.getElementById('name');
 
 let isOpen = false;
 rulesBtn.addEventListener('click',()=>{
@@ -50,6 +51,17 @@ if (localStorage.vaccine == null) {
 if (sessionStorage.RPSwinsStraight == null) {
     sessionStorage.setItem('RPSwinsStraight',0);
 }
+if (localStorage.playerLevel == null) {
+    localStorage.setItem('playerLevel',1);
+}
+if (localStorage.playerName == null) {
+    let name = prompt(`Добро пожаловать в ! Вижу, Вы тут впервые? Введите ваш никнейм, перед тем как начать играть. По умолчанию установлено имя "Игрок", но вы можете поменять его в любое время на главной странице.`);
+    if (name==null) {
+        name="Игрок"
+    }
+    localStorage.setItem('playerName', name)
+}
+
 
 setGameLocalItems()
 let achivment ='';
@@ -64,6 +76,8 @@ function updateAllLocalInners() {
     anSpan.innerHTML= localStorage.an;
     vaccineValSpan.innerHTML= localStorage.vaccine;
     vaccineLine.style.width = `${localStorage.vaccine}%`;
+    playerLevel.innerHTML = localStorage.playerLevel+' ур.';
+    playerName.innerHTML = localStorage.playerName;
     
 }
 
@@ -240,3 +254,12 @@ an.addEventListener('click',() =>{
         updateAllLocalInners();
         
     })
+
+    function riseVaccine(level){
+        vaccineSpeed = 1 - (+level - 1)*0.2;
+        localStorage.vaccine+=vaccineSpeed;
+        if (localStorage.vaccine>=100) {
+            localStorage.vaccine = 0;
+            localStorage.playerLevel++
+        }
+    }

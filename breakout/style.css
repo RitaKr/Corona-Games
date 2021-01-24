@@ -1,14 +1,18 @@
 body {
     background-attachment: fixed;
-    background-image: linear-gradient(to bottom right, rgb(255, 174, 23), rgb(255, 113, 78), rgb(185, 33, 99));
-    background-image: linear-gradient(to bottom right, rgb(133,90,92), rgb(142,88,196));
-
-    /*background-image: linear-gradient(to bottom right, rgb(228,102,80), rgb(155,222,117));
-    background-image: linear-gradient(to bottom right, rgb(180,164,89), rgb(208,113,215));
+    
     background-image: linear-gradient(to bottom right, rgb(240,189,139), rgb(113,112,220));
+
+    /*
+background-image: linear-gradient(to bottom right, rgb(255, 174, 23), rgb(255, 113, 78), rgb(185, 33, 99));
+    
+    background-image: linear-gradient(to bottom right, rgb(133,90,92), rgb(142,88,196));
+    background-image: linear-gradient(to bottom right, rgb(228,102,80), rgb(155,222,117));
+    background-image: linear-gradient(to bottom right, rgb(180,164,89), rgb(208,113,215));
+   !! 
     background-image: linear-gradient(to bottom right, rgb(159,97,41), rgb(158,163,224));
-    background-image: linear-gradient(to bottom right, rgb(212,95,45), rgb(113,67,190));
-    background-image: linear-gradient(to bottom right, rgb(207,50,117), rgb(48,124,198));
+   ! background-image: linear-gradient(to bottom right, rgb(212,95,45), rgb(113,67,190));
+   ! background-image: linear-gradient(to bottom right, rgb(228, 42, 123), rgb(50, 139, 228));
     background-image: linear-gradient(to bottom right, rgb(117,87,94),rgb(179,154,146));
     background-image: linear-gradient(to bottom right, rgb(139,202,239), rgb(207,139,199));
 
@@ -19,7 +23,7 @@ body {
     background-clip: text;
     background-size: 100%;
     background-image: linear-gradient(to bottom right, rgb(255, 193, 78), rgb(255, 145, 118),rgb(228, 62, 134));
-    background-image: linear-gradient(to bottom right, rgb(133,90,92), rgb(142,88,196));
+    background-image: linear-gradient(to bottom right, rgb(240,189,139), rgb(113,112,220));
 }
 canvas {
     background-color: rgba(255, 255, 255, 0.5);

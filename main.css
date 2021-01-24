@@ -119,6 +119,7 @@ html {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
+    
 }
 .main h1 {
     font-size: 2.5em;
@@ -194,7 +195,7 @@ html {
     background-image: linear-gradient(to bottom, rgb(0, 90, 102), rgb(28, 46, 146));
 }
 #breakout {
-    background-image: linear-gradient(to bottom right, rgb(133,90,92), rgb(142,88,196));
+    background-image: linear-gradient(to bottom right, rgb(240,189,139), rgb(113,112,220));
 }
 
 
@@ -361,7 +362,7 @@ em.comment {
     border-radius: 10px;
     display: flex;
     
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     
     font-size: 1em;
@@ -373,12 +374,17 @@ em.comment {
     
 }
 
-
+.level {
+    padding: 5px 15px;
+    border-radius: 10px 10px 0 0;
+    background: rgba(0, 0, 0, .8);
+    color: white;
+}
 .achivment-container {
     width: 300px;
     background: rgb(255, 255, 255,.3);
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 0 0 10px 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
