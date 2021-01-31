@@ -377,7 +377,8 @@ em.comment {
 .level {
     padding: 5px 15px;
     border-radius: 10px 10px 0 0;
-    background: rgba(0, 0, 0, .8);
+    background: rgb(29, 12, 92);
+    font-size: .6em;
     color: white;
 }
 .achivment-container {
