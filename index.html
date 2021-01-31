@@ -195,6 +195,7 @@
     <h1>Мой профиль</h1>
     <p>Никнейм: <span id="name"></span></p>
     <p>Уровень: <span id="level"></span></p>
+    <button class="excange-btn" onclick="setName('change')">Сменить никнейм</button>
 </div>
 </div>
 
@@ -382,8 +383,17 @@ if (localStorage.RPSloses== null) {
 if (localStorage.playerLevel == null) {
     localStorage.setItem('playerLevel',1);
 }
-if (localStorage.playerName == null) {
-    let name = prompt(`Добро пожаловать в ! Вижу, Вы тут впервые? Введите ваш никнейм, перед тем как начать играть. По умолчанию установлено имя "Игрок", но вы можете поменять его в любое время на главной странице.`);
+if (localStorage.playerName === null || localStorage.playerName === undefined) {
+    setName('first');
+}
+
+function setName(reason) {
+    let name = "Игрок";
+    if (reason=="first") {
+        name = prompt(`Добро пожаловать в CORONA GAMES! Вижу, Вы тут впервые? Введите ваш никнейм, перед тем как начать играть. По умолчанию установлено имя "Игрок", но вы можете поменять его в любое время на главной странице.`);
+    } else {
+        name = prompt(`Введите никнейм который хотите установить. Если вы ничего не введёте, установится имя "Игрок"`);
+    }
     if (name==null) {
         name="Игрок"
     }

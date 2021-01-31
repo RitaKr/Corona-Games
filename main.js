@@ -54,14 +54,22 @@ if (sessionStorage.RPSwinsStraight == null) {
 if (localStorage.playerLevel == null) {
     localStorage.setItem('playerLevel',1);
 }
-if (localStorage.playerName == null) {
-    let name = prompt(`Добро пожаловать в CORONA GAMES! Вижу, Вы тут впервые? Введите ваш никнейм, перед тем как начать играть. По умолчанию установлено имя "Игрок", но вы можете поменять его в любое время на главной странице.`);
+if (localStorage.playerName === null || localStorage.playerName === undefined) {
+    setName('first');
+}
+
+function setName(reason) {
+    let name = "Игрок";
+    if (reason=="first") {
+        name = prompt(`Добро пожаловать в CORONA GAMES! Вижу, Вы тут впервые? Введите ваш никнейм, перед тем как начать играть. По умолчанию установлено имя "Игрок", но вы можете поменять его в любое время на главной странице.`);
+    } else {
+        name = prompt(`Введите никнейм который хотите установить. Если вы ничего не введёте, установится имя "Игрок"`);
+    }
     if (name==null) {
         name="Игрок"
     }
     localStorage.setItem('playerName', name)
 }
-
 
 setGameLocalItems()
 let achivment ='';
