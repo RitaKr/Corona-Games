@@ -65,7 +65,7 @@ function setName(reason) {
     } else {
         name = prompt(`Введите никнейм который хотите установить. Если вы ничего не введёте, установится имя "Игрок"`);
     }
-    if (name==null) {
+    if (name===null || name==" "|| name=="") {
         name="Игрок"
     }
     localStorage.setItem('playerName', name)
