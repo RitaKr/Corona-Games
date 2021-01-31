@@ -94,7 +94,7 @@
     <div class="game-space-container">
         <div class="container">
             
-            <button class="set-progress" id="set-progress" onclick="NullProgress()">Аннулировать прогресс</button>
+            <button class="set-progress" id="set-progress" onclick="localStorage.clear(); alert('localeStorage cleared')">Аннулировать прогресс</button>
             <button class="start" id="start" onclick="startGame('start')">Начать игру</button>
             
             <div class="time-container">

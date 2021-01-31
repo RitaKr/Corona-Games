@@ -327,6 +327,69 @@ const msk = document.getElementById('msk');
 const playerLevel = document.getElementById('level');
 const playerName = document.getElementById('name');
 
+
+if (localStorage.tp == null) {
+    localStorage.setItem('tp', 0);
+} 
+if (localStorage.msk == null) {
+    localStorage.setItem('msk', 0);
+} 
+if (localStorage.an == null) {
+    localStorage.setItem('an', 0);
+} 
+if (localStorage.vaccine == null) {
+    localStorage.setItem('vaccine', 0);
+} 
+if (sessionStorage.RPSwinsStraight == null) {
+    sessionStorage.setItem('RPSwinsStraight',0);
+}
+if (localStorage.CWtimesPlayed == null) {
+    localStorage.setItem('CWtimesPlayed', 0);
+} 
+if (localStorage.CWbestScore== null) {
+        localStorage.setItem('CWbestScore', 0);
+} 
+if (localStorage.BOtimesPlayed == null) {
+    localStorage.setItem('BOtimesPlayed', 0);
+} 
+if (localStorage.BObestScore== null) {
+    localStorage.setItem('BObestScore', 0);
+} 
+if (localStorage.BObestLevel== null) {
+    localStorage.setItem('BObestLevel', 1);
+}
+if (localStorage.themeMax== null) {
+    localStorage.setItem('themeMax', 115);
+}
+if (localStorage.themeMin== null) {
+    localStorage.setItem('themeMin', 25);
+}  
+if (localStorage.themeBg== null) {
+    localStorage.setItem('themeBg', 'rgba(255, 255, 255, .5)');
+}
+if (localStorage.RPStimesPlayed == null) {
+    localStorage.setItem('RPStimesPlayed', 0);
+} 
+if (localStorage.RPSdraws== null) {
+    localStorage.setItem('RPSdraws', 0);
+} 
+if (localStorage.RPSwins == null) {
+    localStorage.setItem('RPSwins', 0);
+} 
+if (localStorage.RPSloses== null) {
+    localStorage.setItem('RPSloses', 0);
+} 
+if (localStorage.playerLevel == null) {
+    localStorage.setItem('playerLevel',1);
+}
+if (localStorage.playerName == null) {
+    let name = prompt(`Добро пожаловать в ! Вижу, Вы тут впервые? Введите ваш никнейм, перед тем как начать играть. По умолчанию установлено имя "Игрок", но вы можете поменять его в любое время на главной странице.`);
+    if (name==null) {
+        name="Игрок"
+    }
+    localStorage.setItem('playerName', name)
+}
+
 function updateStatTableInners(){
 
     CWbestScore.innerHTML = localStorage.CWbestScore; 
