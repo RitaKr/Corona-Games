@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Color words</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../main.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="shortcut icon" href="../images/favicon.png" type="image/png">
+    </head>
+    <body>
+        
+        <div class="menu" id="menu">
+            <span class="rules-span">Правила игры <img src="../images/arrow.png" class="arrow">
+                <div class="rules">
+                    
+                    <p>
+                    <ul>
+                        <li>
+                        В этой игре Вам надо нажимать на кнопку того цвета, который написан сверху. 
+                        Главное не перепутать цвет которым слово ОКРАШЕНО с цветом который оно ОБОЗНАЧАЕТ. В этом то и хитрость.
+                        </li>
+                        <li> 
+                        Длительность игры 30 секунд. 
+                        </li>
+                        <li>
+                        За каждый правильный ответ начисляется очко. 
+                        </li>
+                        <li> 
+                        Ваша цель - собрать как можно больше очков за 30 секунд. 
+                        По истечению времени или неправильном ответе игра заканчивается и счёт 
+                        аннулируется.
+                        </li>
+                        <li>  
+                    За преодоление отметок в определенное количество очков полагаются награды:
+                    <table>
+                        <tr>
+                            <th>15 очков *</th>
+                            <td>
+                                <img src="../images/tp.png" title="туалетная бумага" alt="туалетная бумага">
+                                <span>
+                                    <p class="comment">Можно обменять на +3 с к общему времени (действует 1 игру)</p>
+                                    
+                                    <em class="comment">1 вложение в вакцину = 5 рулонов туалетной бумаги</em>
+                                </span>
+                                </td>
+                        </tr>
+                        <tr>
+                            <th>20 очков **</th>
+                            <td>
+                                <img src="../images/msk.png" title="маска" alt="маска">
+                                <span>
+                                    <p class="comment">Можно обменять на право ошибки (действует 1 игру)</p>
+                                    
+                                    <em class="comment">1 вложение в вакцину = 3 маски</em>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>30 очков ***</th>
+                            <td>
+                                <img src="../images/an.png" title="антисептик" alt="антисептик">
+                                <span>
+                                    <p class="comment">Можно обменять на право ошибки и +10 с к общему времени (действует 1 игру)</p>
+                                    
+                                    <em class="comment">1 вложение в вакцину = 1 антисептик</em>
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                    </li>
+                    <li>
+                        Предметы так же можно вложить в вакцину от коронавируса, которая должна спасти всё население. Каждое вложение спасает 1% населения. 
+                        Цены указаны в таблице. 
+                    </li>
+                    <em class="comment">* После преодоления отметки в 15 очков начисляется по 1 предмету (туалетная бумага) за кажое восьмое очко</em>
+                    <br>
+                    <em class="comment">** После преодоления отметки в 20 очков начисляется по 1 предмету (маска) за кажое двенадцатое очко</em>
+                    <br>
+                    <em class="comment">*** После преодоления отметки в 30 очков начисляется по 1 предмету (антисептик) за кажое двадцать второе очко</em>
+                </ul>
+                </p>
+                </div>
+            </span>
+            <div>
+                <img src="../images/covid.png" class="covid-icon">
+                <h1 class="game-title">Color words</h1>
+                <div class="times-played">Сыграно Вами <span id="times-played"></span> раз<span id="times-ending"></span></div>
+            </div>
+            
+            <a href="../index.html#main" target="home" class="to-home">На главную</a>
+        </div>
+
+    <div class="game-space-container">
+        <div class="container">
+            
+            <button class="set-progress" id="set-progress" onclick="NullProgress()">Аннулировать прогресс</button>
+            <button class="start" id="start" onclick="startGame('start')">Начать игру</button>
+            
+            <div class="time-container">
+                <div class="time-passed">Время: <span id="time">0s</span>
+                
+                </div>
+                
+                <div class="best-time">Лучшее время: <span id="best">0s</span></div>
+                <div class="mistakes-container">Ошибок: <span id="mistakes">0/3</span></div>
+            </div>
+            <div id="sudoku-game-space">
+                <table id="SudokuTable" class="sudoku-table">
+                    <tr id="sqR1">
+                        <td id="sqR1C1" class="sqR1, sqC1">
+                            <table id="sq1" class="Sqw">
+                                <tr id="r1">
+                                    <td id="r1c1" class="r1, c1"></td>
+                                    <td id="r1c2" class="r1, c2"></td>
+                                    <td id="r1c3" class="r1, c3"></td>
+                                </tr>
+                                <tr id="r2">
+                                    <td id="r2c1" class="r2, c1"></td>
+                                    <td id="r2c2" class="r2, c2"></td>
+                                    <td id="r2c3" class="r2, c3"></td>
+                                </tr>
+                                <tr id="r3">
+                                    <td id="r3c1" class="r3, c1"></td>
+                                    <td id="r3c2" class="r3, c2"></td>
+                                    <td id="r3c3" class="r3, c3"></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td id="sqR1C2" class="sqR1, sqC2">
+                            <table id="sq2" class="Sqw">
+                                <tr id="r1">
+                                    <td id="r1c4" class="r1, c1"></td>
+                                    <td id="r1c5" class="r1, c2"></td>
+                                    <td id="r1c6" class="r1, c3"></td>
+                                </tr>
+                                <tr id="r2">
+                                    <td id="r2c4" class="r2, c1"></td>
+                                    <td id="r2c5" class="r2, c2"></td>
+                                    <td id="r2c6" class="r2, c3"></td>
+                                </tr>
+                                <tr id="r3">
+                                    <td id="r3c4" class="r3, c1"></td>
+                                    <td id="r3c5" class="r3, c2"></td>
+                                    <td id="r3c6" class="r3, c3"></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td id="sqR1C3" class="sqR1, sqC3">
+                            <table id="sq3" class="Sqw">
+                                <tr id="r1">
+                                    <td id="r1c7" class="r1, c1"></td>
+                                    <td id="r1c8" class="r1, c2"></td>
+                                    <td id="r1c9" class="r1, c3"></td>
+                                </tr>
+                                <tr id="r2">
+                                    <td id="r2c7" class="r2, c1"></td>
+                                    <td id="r2c8" class="r2, c2"></td>
+                                    <td id="r2c9" class="r2, c3"></td>
+                                </tr>
+                                <tr id="r3">
+                                    <td id="r3c7" class="r3, c1"></td>
+                                    <td id="r3c8" class="r3, c2"></td>
+                                    <td id="r3c9" class="r3, c3"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr id="sqR2">
+                        <td id="sqR2C1" class="sqR2, sqC1">
+                            <table id="sq4" class="Sqw">
+                                <tr id="r4">
+                                    <td id="r4c1" class="r1, c1"></td>
+                                    <td id="r4c2" class="r1, c2"></td>
+                                    <td id="r4c3" class="r1, c3"></td>
+                                </tr>
+                                <tr id="r5">
+                                    <td id="r5c1" class="r2, c1"></td>
+                                    <td id="r5c2" class="r2, c2"></td>
+                                    <td id="r5c3" class="r2, c3"></td>
+                                </tr>
+                                <tr id="r6">
+                                    <td id="r6c1" class="r3, c1"></td>
+                                    <td id="r6c2" class="r3, c2"></td>
+                                    <td id="r6c3" class="r3, c3"></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td id="sqR2C2" class="sqR2, sqC2">
+                            <table id="sq5" class="Sqw">
+                                <tr id="r4">
+                                    <td id="r4c4" class="r1, c1"></td>
+                                    <td id="r4c5" class="r1, c2"></td>
+                                    <td id="r4c6" class="r1, c3"></td>
+                                </tr>
+                                <tr id="r5">
+                                    <td id="r5c4" class="r2, c1"></td>
+                                    <td id="r5c5" class="r2, c2"></td>
+                                    <td id="r5c6" class="r2, c3"></td>
+                                </tr>
+                                <tr id="r6">
+                                    <td id="r6c4" class="r3, c1"></td>
+                                    <td id="r6c5" class="r3, c2"></td>
+                                    <td id="r6c6" class="r3, c3"></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td id="sqR2C3" class="sqR2, sqC3">
+                            <table id="sq6" class="Sqw">
+                                <tr id="r4">
+                                    <td id="r4c7" class="r1, c1"></td>
+                                    <td id="r4c8" class="r1, c2"></td>
+                                    <td id="r4c9" class="r1, c3"></td>
+                                </tr>
+                                <tr id="r5">
+                                    <td id="r5c7" class="r2, c1"></td>
+                                    <td id="r5c8" class="r2, c2"></td>
+                                    <td id="r5c9" class="r2, c3"></td>
+                                </tr>
+                                <tr id="r6">
+                                    <td id="r6c7" class="r3, c1"></td>
+                                    <td id="r6c8" class="r3, c2"></td>
+                                    <td id="r6c9" class="r3, c3"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr id="sqR3">
+                        <td id="sqR3C1" class="sqR3, sqC1">
+                            <table id="sq7" class="Sqw">
+                                <tr id="r7">
+                                    <td id="r7c1" class="r1, c1"></td>
+                                    <td id="r7c2" class="r1, c2"></td>
+                                    <td id="r7c3" class="r1, c3"></td>
+                                </tr>
+                                <tr id="r8">
+                                    <td id="r8c1" class="r2, c1"></td>
+                                    <td id="r8c2" class="r2, c2"></td>
+                                    <td id="r8c3" class="r2, c3"></td>
+                                </tr>
+                                <tr id="r9">
+                                    <td id="r9c1" class="r3, c1"></td>
+                                    <td id="r9c2" class="r3, c2"></td>
+                                    <td id="r9c3" class="r3, c3"></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td id="sqR3C2" class="sqR3, sqC2">
+                            <table id="sq8" class="Sqw">
+                                <tr id="r7">
+                                    <td id="r7c4" class="r1, c1"></td>
+                                    <td id="r7c5" class="r1, c2"></td>
+                                    <td id="r7c6" class="r1, c3"></td>
+                                </tr>
+                                <tr id="r8">
+                                    <td id="r8c4" class="r2, c1"></td>
+                                    <td id="r8c5" class="r2, c2"></td>
+                                    <td id="r8c6" class="r2, c3"></td>
+                                </tr>
+                                <tr id="r9">
+                                    <td id="r9c4" class="r3, c1"></td>
+                                    <td id="r9c5" class="r3, c2"></td>
+                                    <td id="r9c6" class="r3, c3"></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td id="sqR3C3" class="sqR3, sqC3">
+                            <table id="sq9" class="Sqw">
+                                <tr id="r7">
+                                    <td id="r7c7" class="r1, c1"></td>
+                                    <td id="r7c8" class="r1, c2"></td>
+                                    <td id="r7c9" class="r1, c3"></td>
+                                </tr>
+                                <tr id="r8">
+                                    <td id="r8c7" class="r2, c1"></td>
+                                    <td id="r8c8" class="r2, c2"></td>
+                                    <td id="r8c9" class="r2, c3"></td>
+                                </tr>
+                                <tr id="r9">
+                                    <td id="r9c7" class="r3, c1"></td>
+                                    <td id="r9c8" class="r3, c2"></td>
+                                    <td id="r9c9" class="r3, c3"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <div id="choises">
+                    <button id="ch1" class="choice-btn">1</button>
+                    <button id="ch2" class="choice-btn">2</button>
+                    <button id="ch3" class="choice-btn">3</button>
+                    <button id="ch4" class="choice-btn">4</button>
+                    <button id="ch5" class="choice-btn">5</button>
+                    <button id="ch6" class="choice-btn">6</button>
+                    <button id="ch7" class="choice-btn">7</button>
+                    <button id="ch8" class="choice-btn">8</button>
+                    <button id="ch9" class="choice-btn">9</button>
+                </div>
+            </div>
+            </div>
+
+            <div>
+                <div class="level">
+                    <p><span id="name"></span>: <span id="level"></span></p>
+                </div>
+                <div class="achivment-container">
+                
+                <h3>Твои запасы:</h3>
+                <table class="achivment-table">
+                    <tr>
+                        
+                        <th>В наличии</th>
+                        <th>Предмет</th>
+                        <th>Цена вакцины</th>
+                    </tr>
+                    <tr>
+                        
+                        <td><span id="tp-value"></span></td>
+                        <td>
+                            <img src="../images/tp.png" height="50px" id="tp" class="achivment-img">
+                        </td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        
+                        <td><span id="msk-value"></span></td>
+                        <td>
+                            <img src="../images/msk.png" height="50px" id="msk" class="achivment-img">
+                        </td>
+                        <td>3</td>
+                        
+                    </tr>
+                    <tr>
+                        
+                        <td><span id="an-value"></span></td>
+                        <td>
+                            <img src="../images/an.png" height="50px" id="an" class="achivment-img">
+                        </td>
+                        <td>1</td>
+                    </tr>
+                </table>
+                <div class="exchange-container">
+                    <div id="excange-item">Выберите предмет</div>
+                    <div class="exchange-btn-container">
+                        <button id="excange" class="excange-btn">Использовать</button>
+                        <button id="excange2" class="excange-btn">Вложить в вакцину</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    <div id="vaccine-line-container">
+        <span id="vaccine-line"></span>
+        <span class="vaccine-line-title">Вы спасли <span id="vaccine-value"></span>% населения</span>
+    </div>
+        <div class="end-game" id="end-game">
+        </div>
+        
+        <script src="script.js"></script>
+        <script src="../main.js"></script>
+    </body>
+</html>

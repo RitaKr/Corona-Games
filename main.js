@@ -92,6 +92,7 @@ function updateAllLocalInners() {
     vaccineLine.style.width = `${localStorage.vaccine}%`;
     playerLevel.innerHTML = localStorage.playerLevel+' ур.';
     playerName.innerHTML = localStorage.playerName;
+    checkLevel()
     
 }
 
@@ -112,7 +113,9 @@ function NullProgress() {
     localStorage.setItem('BObestScore', 0);
     localStorage.setItem('BOtimesPlayed', 0);
     localStorage.setItem('BObestLevel', 1);
+    localStorage.setItem('playerLevel', 1)
     updateAllLocalInners()
+    
     
     }
 }
@@ -197,7 +200,7 @@ an.addEventListener('click',() =>{
                alert('Нет туалетной бумаги :(');
                exchangeBtn.style.opacity = 0.3;
             }
-            console.log(localStorage.tp);
+            //console.log(localStorage.tp);
             break;
             case 'msk': 
             if (localStorage.msk>0) {
@@ -209,7 +212,7 @@ an.addEventListener('click',() =>{
                alert('Нет масок :(');
                exchangeBtn.style.opacity = 0.3;
             }
-            console.log(localStorage.msk);
+            //console.log(localStorage.msk);
             break;
             case 'an': 
             if (localStorage.an>0) {
@@ -220,10 +223,11 @@ an.addEventListener('click',() =>{
                alert('Нет антисептиков :(');
                exchangeBtn.style.opacity = 0.3;
             }
-            console.log(localStorage.an);
+            //console.log(localStorage.an);
             break;
         }
         updateAllLocalInners();
+        
         
         
     })
@@ -234,35 +238,35 @@ an.addEventListener('click',() =>{
             case 'tp': 
             if (localStorage.tp>=5) {
                 localStorage.tp-=5;
-                localStorage.vaccine++;
+                riseVaccine(localStorage.playerLevel)
             } else {
                alert(`Недостаточно туалетной бумаги :(
 Цена одного вложения - 5 рулонов туалетной бумаги`);
                exchangeBtn2.style.opacity = 0.3;
             }
-            console.log(localStorage.tp);
+            //console.log(localStorage.tp);
             break;
             case 'msk': 
             if (localStorage.msk>=3) {
                 localStorage.msk-=3;
-                localStorage.vaccine++;
+                riseVaccine(localStorage.playerLevel)
             } else {
                alert(`Недостаточно масок :(
 Цена одного вложения - 3 маски`);
                exchangeBtn2.style.opacity = 0.3;
             }
-            console.log(localStorage.msk);
+            //console.log(localStorage.msk);
             break;
             case 'an': 
             if (localStorage.an>0) {
                 localStorage.an--;
-                localStorage.vaccine++;
+                riseVaccine(localStorage.playerLevel)
             } else {
                alert(`Недостаточно антисептиков :(
 Цена одного вложения - 1 антисептик`);
                exchangeBtn2.style.opacity = 0.3;
             }
-            console.log(localStorage.an);
+            //console.log(localStorage.an);
             break;
         }
         updateAllLocalInners();
@@ -270,10 +274,17 @@ an.addEventListener('click',() =>{
     })
 
     function riseVaccine(level){
-        vaccineSpeed = 1 - (+level - 1)*0.2;
-        localStorage.vaccine+=vaccineSpeed;
+        let vaccineSpeed = 1/(+level);
+        console.log('vaccineSpeed', vaccineSpeed, 'localStorage.vaccine', localStorage.vaccine);
+        let vaccine = +localStorage.vaccine;
+        vaccine+=vaccineSpeed;
+        localStorage.vaccine= Math.round((vaccine)*100)/100;
+        checkLevel()
+        
+    }
+    function checkLevel(){
         if (localStorage.vaccine>=100) {
-            localStorage.vaccine = 0;
-            localStorage.playerLevel++
+                    localStorage.vaccine = 0;
+                    +localStorage.playerLevel++
         }
     }
