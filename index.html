@@ -19,8 +19,8 @@
             <span class="hdiv-span">
                 <h1>CORONA GAMES</h1>
                 <h2>Что это такое?</h2>
-                CORONA GAMES - проект, призванный помочь вам пережить пандемию коронавируса 
-                и разнообразить ваши серые будни в самоизоляции. На этом сайте вы можете занять 
+                CORONA GAMES - проект, призванный помочь Вам пережить пандемию коронавируса 
+                и разнообразить ваши серые будни в самоизоляции. На этом сайте Вы можете занять 
                 своё время минииграми и представить себя супергероем спасающим мир от коронавируса
             </span>
         </div>
@@ -29,39 +29,37 @@
     <div id="hdiv2" class="hdiv">
         
         <div>
-            <img src="images/covid.png" class="hdiv-img">
+            <img src="images/vaccine.png" class="hdiv-img">
             <span class="hdiv-span">
                 <h1>CORONA GAMES</h1>
-                <h2>Что это такое?</h2>
-                CORONA GAMES - проект, призванный помочь вам пережить пандемию коронавируса 
-                и разнообразить ваши серые будни в самоизоляции. На этом сайте вы можете занять 
-                своё время минииграми и представить себя супергероем спасающим мир от коронавируса
+                <h2>В чем особенность этого проекта?</h2>
+                В CORONA GAMES - не просто сборник игор, это целая игровая структура со своим сюжетом, игровой валютой, системой уровней и отслеживания игрового прогресса. 
+                <br><br>
+                Сюжет строится на том, чтоб добывать в минииграх инвентарь, который можно вкладывать в вакцину и вакцинировать ей жителей разных стран. С каждой выкцинированой страной игрок переходит на новый уровень. Но вакцинировать всё население будет сложнее с каждым новым уровнем. Игра будет считаться пройденой когда будут вакцинированы все страны мира. 
             </span>
         </div>
     </div>
     <div id="hdiv3" class="hdiv">
         
         <div>
-            <img src="images/covid.png" class="hdiv-img">
+            <img src="images/trophy.png" class="hdiv-img">
             <span class="hdiv-span">
                 <h1>CORONA GAMES</h1>
-                <h2>Что это такое?</h2>
-                CORONA GAMES - проект, призванный помочь вам пережить пандемию коронавируса 
-                и разнообразить ваши серые будни в самоизоляции. На этом сайте вы можете занять 
-                своё время минииграми и представить себя супергероем спасающим мир от коронавируса
+                <h2>Могу ли я отслеживать свой прогресс?</h2>
+                Конечно! В каждой миниигре Вы можете увидеть Вашу статистику и рекорды по данной миниигре, а так же количество вашего инвентаря. Вы так же можете посмотреть полную стастику по всем играм на главной странице
             </span>
         </div>
     </div>
     <div id="hdiv4" class="hdiv">
         
         <div>
-            <img src="images/covid.png" class="hdiv-img">
+            <img src="images/controller.png" class="hdiv-img">
             <span class="hdiv-span">
                 <h1>CORONA GAMES</h1>
-                <h2>Что это такое?</h2>
-                CORONA GAMES - проект, призванный помочь вам пережить пандемию коронавируса 
-                и разнообразить ваши серые будни в самоизоляции. На этом сайте вы можете занять 
-                своё время минииграми и представить себя супергероем спасающим мир от коронавируса
+                <h2>Во что здесь можно поиграть?</h2>
+                Мы предлагаем Вам набор беспалтных онлайн игор собственной реализации: COLOR WORDS, ROCK PAPER SCISSORS и BREAKOUT. На данный момент их всего 3, но планируются пополнения. На этой странице Вы сможете прочитать описания игр и перейти на каждую из них.
+                <br><br>
+                 В процессе игры Вы будете получать достижения и награды в игровой валюте: таулетную бумагу, маски и антисептики. Её можно использовать только в пределах этого сайта, обменивая друг на друга либо дополнительные "плюшки" в играх.
             </span>
         </div>
     </div>
@@ -84,7 +82,7 @@
         
         </div>
         <p class="games-menu-item-description" id="rps-description" >
-            Классическая игра "Камень ножницы бумага", только твой соперник - компьютер. 
+            Классическая игра "Камень ножницы бумага", только Ваш соперник - компьютер. 
             Игра ограничена количеством раундов, то есть заканчивается по окончанию последнего раунда.
         </p>
     </a>
@@ -153,6 +151,19 @@
         </tr>
     </table>
 </div>
+<div id="stat-div">
+    <h1>Страны, которые Вы уже вакцинировали</h1>
+    <table class="stat-table" id="countriesTable">
+        <tr>
+            <th>Страна</th>
+            <th>Дата</th>
+        </tr>
+    </table>
+    <div id="vaccine-line-container" class="main-vaccine">
+        <span id="vaccine-line"></span>
+        <span class="vaccine-line-title">Вы вакцинировали <span id="vaccine-value"></span>% населения страны <span id="countrySpan"></span></span>
+    </div>
+</div>
 
 <div class="achivment-container, main-achivment">
     <h1>Ваши запасы</h1>
@@ -192,7 +203,7 @@
 
 </div>
 <div class="stat-div">
-    <h1>Мой профиль</h1>
+    <h1>Ваш профиль</h1>
     <p>Никнейм: <span id="name"></span></p>
     <p>Уровень: <span id="level"></span></p>
     <button class="start" onclick="setName('change')">Сменить никнейм</button>
@@ -215,6 +226,23 @@
         console.log('hdiv1 top '+$('#hdiv1').css('top'))
         console.log('hdiv1 height '+$('#hdiv1').css('height'));
         */
+        let hdivs = document.querySelectorAll('.hdiv');
+        hdivs.forEach(item => {
+            //console.log(item.id, item.offsetLeft+item.clientWidth);
+            //console.log(window.innerWidth);
+            let k = 0;
+            if (window.innerWidth>720) {
+                k=300
+            } else {
+                k=120
+            }
+            if (item.offsetLeft +item.clientWidth< k) {
+                item.style.opacity = 0;
+            } else {
+                item.style.opacity = 1;
+            }
+        })
+       
         $('#header').css({
             'height': `calc(100vh + ${proscrolleno}px)`
         })
@@ -245,7 +273,7 @@
         })
         $('.main').css({
             'top':  `calc(100vh + ${proscrolleno}px)` ,
-            
+            'left': 0
         })
             
     }  else  { 
@@ -327,7 +355,9 @@ const an = document.getElementById('an');
 const msk = document.getElementById('msk');
 const playerLevel = document.getElementById('level');
 const playerName = document.getElementById('name');
-
+const vaccineValSpan = document.getElementById('vaccine-value');
+const vaccineLine = document.getElementById('vaccine-line');
+const countrySpan = document.getElementById('countrySpan');
 
 if (localStorage.tp == null) {
     localStorage.setItem('tp', 0);
@@ -383,14 +413,22 @@ if (localStorage.RPSloses== null) {
 if (localStorage.playerLevel == null) {
     localStorage.setItem('playerLevel',1);
 }
+if (localStorage.countries == null) {
+    localStorage.setItem('countries', '[]');   
+    //completeCountries = JSON.parse(localStorage.countries);  
+}
+if (localStorage.curCountry == null) {
+    localStorage.setItem('curCountry', random(countries));    
+}
 if (localStorage.playerName === null || localStorage.playerName === undefined) {
     setName('first');
 }
 
+
 function setName(reason) {
     let name = "Игрок";
     if (reason=="first") {
-        name = prompt(`Добро пожаловать в CORONA GAMES! Вижу, Вы тут впервые? Введите ваш никнейм, перед тем как начать играть. По умолчанию установлено имя "Игрок", но вы можете поменять его в любое время на главной странице.`);
+        name = prompt(`Добро пожаловать в CORONA GAMES! Вижу, Вы тут впервые? Введите Ваш никнейм, перед тем как начать играть. По умолчанию установлено имя "Игрок", но Вы можете поменять его в любое время на главной странице.`);
         if (name===null || name==" "|| name=="") {
             name="Игрок"
         }
@@ -405,9 +443,8 @@ function setName(reason) {
     }
     updateStatTableInners()
 }
-
 function updateStatTableInners(){
-
+    fillCountriesTable()
     CWbestScore.innerHTML = localStorage.CWbestScore; 
     CWtimesPlayed.innerHTML = localStorage.CWtimesPlayed; 
     RPStimesPlayed.innerHTML = localStorage.RPStimesPlayed; 
@@ -422,9 +459,27 @@ function updateStatTableInners(){
     an.innerHTML = localStorage.an;
     playerLevel.innerHTML = localStorage.playerLevel+' ур.';
     playerName.innerHTML = localStorage.playerName;
+    vaccineValSpan.innerHTML= localStorage.vaccine;
+    vaccineLine.style.width = `${localStorage.vaccine}%`;
+    countrySpan.innerHTML = localStorage.curCountry;
 }
 updateStatTableInners()
 
+function fillCountriesTable() {
+    let countries = JSON.parse(localStorage.countries);
+    let tbody = document.querySelector('#countriesTable');
+    
+    countries.forEach(item => {
+        let tr = document.createElement('tr');
+        let td1 = document.createElement('td');
+        td1.innerHTML = item.country;
+        let td2 = document.createElement('td');
+        td2.innerHTML = item.date;
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tbody.appendChild(tr)
+    })
+}
 </script>
 
 </body>

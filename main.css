@@ -7,6 +7,9 @@ body{
     background-size: 100vw 100vh;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 24px;
+    background-image: linear-gradient(to right bottom,  rgb(29, 12, 92), rgb(128, 17, 104));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
 }
 html {
@@ -56,6 +59,8 @@ html {
     margin:0;
     padding: 40px 80px;
     color: #ffffffa0;
+    transition: opacity.5s;
+    /*transition: opacity 1s;*/
 }
 /*
 .hdiv > div {
@@ -101,7 +106,7 @@ html {
     left: 200vw;
 }
 #hdiv4 {
-    background: linear-gradient(to right bottom,  rgb(29, 12, 92), rgb(128, 17, 104));
+    
     z-index:1000;
     top: 0;
     left: 300vw;
@@ -110,7 +115,8 @@ html {
 
 .main {
     position: absolute;
-    background: linear-gradient(to right top,  rgb(29, 12, 92), rgb(128, 17, 104));
+    /*background-image: linear-gradient(to right top,  rgb(29, 12, 92), rgb(128, 17, 104));*/
+    /*background-attachment: fixed;*/
     top: 100vh;
     width: 100vw;
     left:0;
@@ -119,7 +125,7 @@ html {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
-    
+    z-index: 1000;
 }
 .main h1 {
     font-size: 2.5em;
@@ -504,7 +510,11 @@ em.comment {
     background: rgba(255, 255, 255, 0.3);
     overflow: hidden;
     backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    font-size: 0.8em;
 }
+
 #vaccine-line {
     background: linear-gradient(to right, rgb(109, 255, 51),rgb(35, 222, 255));
     background-attachment: fixed;
@@ -517,6 +527,7 @@ em.comment {
     left: -1px;
     transition: all .3s ease;
     z-index: -1;
+
     
 }
 .vaccine-line-title {
@@ -524,6 +535,8 @@ em.comment {
     margin: 0 auto;
     z-index: 500;
 }
+
+
 .start, .set-progress {
     display: inline-block;
     padding: 15px 20px;
@@ -611,7 +624,16 @@ em.comment {
     align-items: center;
     justify-content: center;
 }
-
+#vaccine-line-container.main-vaccine {
+    position: relative;
+    left: 0;
+    margin: 20px auto;
+    width: 50%;
+    font-size: 0.75em;
+    align-self: center;
+    justify-self: center;
+    
+}
 .stat-table, .main-achivment table {
     align-self: center;
     margin: 0 auto;
@@ -630,6 +652,23 @@ em.comment {
     color:rgba(255, 255, 255, 1);
     padding: 1.2vw 2vw;
 }
+#countriesTable {
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    width: 50%
+}
+#countriesTable th {
+    background: rgb(255, 255, 255, .2);
+    text-align: center;
+}
+#countriesTable tr {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1); 
+}
+#countriesTable td {
+    padding: 1.2vw 2vw;
+}
+
+
+
 .stat-table th, .stat-table td {
     border-right: 2px solid rgba(255, 255, 255, 0.1);
 }
@@ -868,9 +907,15 @@ em.comment {
         font-size: 1em;
     }
     .vaccine-line-title {
-        font-size: 0.8em;
+        font-size: 0.7em;
     }
-    
+    #vaccine-line-container.main-vaccine {
+        
+        margin: 20px auto;
+        width: 100%;
+        
+        
+    }
     .confetti {
         height: 100vh;
         width: initial;
@@ -895,5 +940,13 @@ em.comment {
     }
     .bust {
         font-size: 0.6em;        
+    }
+    #countriesTable {
+        font-size: 0.7em;
+        width: 100%
+    }
+    
+    #countriesTable td {
+        padding: 1.2vw 2vw;
     }
 }
