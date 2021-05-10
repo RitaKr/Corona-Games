@@ -159,7 +159,7 @@ const brick = {
   y: canvas.height - 30,
   w: 80,
   h: 15,
-  speed: 8,
+  speed: 6,
   dx: 0,
 };
 const brickInfo = {
