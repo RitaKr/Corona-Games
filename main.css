@@ -78,8 +78,9 @@ html {
     
     
 }
+
 .hdiv div h2 {
-    font-size: 1.5em;
+    font-size: 1.6em;
 }
 .hdiv-img {
     
@@ -89,6 +90,7 @@ html {
 .hdiv-span {
     padding: 40px;
     width: 50%;
+    font-size: 0.9em;
 }
 #hdiv1 {
     background: linear-gradient(to right bottom,  rgb(102, 12, 12), rgb(87, 3, 80));
@@ -176,7 +178,7 @@ html {
     background: rgb(114, 114, 114);
     padding: 10px;
     color: white;
-    font-size: 1.3vw;
+    font-size: 1.2vw;
     /* transform: translateY(calc(-30vh - 10px)); */
     position: absolute;
     z-index: 1;
@@ -184,9 +186,9 @@ html {
     border-radius: 8px;
     transition: all .3s ease;
     opacity: 0;
-    top: -1.3vw;
-        height: calc(100% );
-        width: 100%;
+    top: -1.2vw;
+    height: calc(100% );
+    width: 100%;
 }
 
 #color-words {
@@ -802,6 +804,9 @@ em.comment {
     }
     .main {
         padding: 5vw 7vw;
+        background-image: linear-gradient(to right bottom,  rgb(29, 12, 92), rgb(128, 17, 104));
+        background-attachment: fixed;
+    
     }
     .main h1 {
         font-size: 9vw;

@@ -372,7 +372,7 @@ function gameOver(){
   if (localStorage.BObestLevel<level) {
     localStorage.BObestLevel=level;
 }
-  endgameEl.innerHTML += `<p>Твой счёт ${score}</p>
+  endgameEl.innerHTML += `<p>Ваш счёт ${score}</p>
   <button onclick="location.reload()" class="restart">Заново</button>
   <div id="endgame-achivments"></div>
   `;

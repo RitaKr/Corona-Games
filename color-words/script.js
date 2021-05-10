@@ -135,7 +135,7 @@ function gameOver(reason){
             console.log('fade')
         }, 2300)
     } 
-    endgameEl.innerHTML += `<p>Твой счёт ${score}</p>
+    endgameEl.innerHTML += `<p>Ваш счёт ${score}</p>
     <button onclick="location.reload()" class="restart">Заново</button>
     <div id="endgame-achivments"></div>
     `;
