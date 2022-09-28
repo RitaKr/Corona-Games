@@ -33,9 +33,11 @@
             <span class="hdiv-span">
                 <h1>CORONA GAMES</h1>
                 <h2>У чому особливість цього проєкту?</h2>
-                CORONA GAMES - не просто збірник ігор, це ціла ігрова структура зі своїм сюжетом, ігровою валютою, системою рівнів і відслідковування ігрового прогресу. 
+                CORONA GAMES - не просто збірник ігор, це ціла ігрова структура зі своїм сюжетом, 
+                ігровою валютою, системою рівнів і відслідковування ігрового прогресу. 
                 <br><br>
-                Сюжет побудований на тому, щоб здобувати у мінііграх інвентар, який можна інвестувати у вакцину та вакцинувати мешканців різних крїн. 
+                Сюжет побудований на тому, щоб здобувати у мінііграх інвентар, який можна інвестувати 
+                у вакцину та вакцинувати мешканців різних крїн. 
                 З кожною вакцинованою країною гравець переходить на новий рівень. 
                 Але вакцинувати все населення буде складніше з кожним новим рівнем. 
                 Гра вважатиметься пройденою, коли будуть вакциновані всі країни світу. 
@@ -62,7 +64,8 @@
             <span class="hdiv-span">
                 <h1>CORONA GAMES</h1>
                 <h2>У що тут можна пограти?</h2>
-                Ми пропонуємо Вам набір безкоштовних онлайн ігор власної реалізації: COLOR WORDS, ROCK PAPER SCISSORS и BREAKOUT. 
+                Ми пропонуємо Вам набір безкоштовних онлайн ігор власної реалізації: 
+                COLOR WORDS, ROCK PAPER SCISSORS і BREAKOUT. 
                 Наразі їх тільки 3, але плануються поповнення. 
                 На цій сторінці Ви можете прочитати описи ігор 
                 і перейти на кожну них.
@@ -84,7 +87,8 @@
         </div>
         <p class="games-menu-item-description" id="color-words-description" >
         В этой игре Вам надо нажимать на кнопку того цвета, который написан сверху. 
-        Главное не перепутать цвет которым слово ОКРАШЕНО с цветом который оно ОБОЗНАЧАЕТ. Игра ограничена временем - 30 секунд
+        Главное не перепутать цвет которым слово ОКРАШЕНО с цветом который оно ОБОЗНАЧАЕТ. 
+            Игра ограничена временем - 30 секунд
         </p>
     </a>
     <a class="games-menu-item-container" id="rps" href="rock-paper-scissors/index.html" target="open-game-rps">
@@ -119,7 +123,7 @@
             <th>Breakout</th>
             
         </tr>
-        <tr><th>Раз сыграно</th>
+        <tr><th>Раз зіграно</th>
             <td id="CWtimesPlayed"></td>
             <td id="RPStimesPlayed"></td>
             <td id="BOtimesPlayed"></td>
@@ -541,9 +545,9 @@ let countries = [
 'Эстония' ,
 'Эфиопия' ,
 'ЮАР' ,
-'Южная Корея' ,
+'Південна Корея' ,
 "Ямайка" ,
-"Япония"
+"Японія"
 ]
 let completeCountries = []; 
 
@@ -630,16 +634,16 @@ function decideRandomCounty(arr) {
 } 
 
 function setName(reason) {
-    let name = "Игрок";
+    let name = "Гравець";
     if (reason=="first") {
-        name = prompt(`Добро пожаловать в CORONA GAMES! Вижу, Вы тут впервые? Введите Ваш никнейм, перед тем как начать играть. По умолчанию установлено имя "Игрок", но Вы можете поменять его в любое время на главной странице.`);
+        name = prompt(`Вітаємо в CORONA GAMES! Бачу, Ви тут вперше? Оберіть Ваш нікнейм перед тим як почати грати. За замовчуванням встановлено нікнейм "Гравець", але Ви можете змінити його у будь-який час на головній сторінці.`);
         if (name===null || name==" "|| name=="") {
-            name="Игрок"
+            name="Гравець"
         }
         localStorage.setItem('playerName', name)
     } else {
         let prevName = localStorage.playerName;
-        name = prompt(`Введите никнейм который хотите установить`);
+        name = prompt(`Введіть нікнейм, який хочете встановити`);
         if (name===null || name==" "|| name=="") {
             name=prevName;
         }
@@ -661,7 +665,7 @@ function updateStatTableInners(){
     tp.innerHTML = localStorage.tp;
     msk.innerHTML = localStorage.msk;
     an.innerHTML = localStorage.an;
-    playerLevel.innerHTML = localStorage.playerLevel+' ур.';
+    playerLevel.innerHTML = localStorage.playerLevel+' рів.';
     playerName.innerHTML = localStorage.playerName;
     vaccineValSpan.innerHTML= localStorage.vaccine;
     vaccineLine.style.width = `${localStorage.vaccine}%`;
