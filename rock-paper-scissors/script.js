@@ -7,8 +7,8 @@ let result_div = document.querySelector('.result p');
 const r_div = document.getElementById('rock');
 const p_div = document.getElementById('paper');
 const s_div = document.getElementById('scissors');
-const smallUserWord = '(игрок)'.fontsize(4).sup();
-const smallCompWord = '(комп)'.fontsize(4).sup();
+const smallUserWord = '(Гравець)'.fontsize(4).sup();
+const smallCompWord = '(Комп)'.fontsize(4).sup();
 const fiveRounds_button = document.getElementById('five');
 const tenRounds_button = document.getElementById('ten');
 const twentyRounds_button = document.getElementById('twenty');
@@ -82,7 +82,7 @@ function win(user, comp){
     uScore++;
     uScore_span.innerHTML = uScore;
     cScore_span.innerHTML = cScore;
-    result_div.innerHTML = `${wordToImage(user)}${smallUserWord} побеждает ${wordToImage(comp)}${smallCompWord}. Вы победили!`;
+    result_div.innerHTML = `${wordToImage(user)}${smallUserWord} перемагає ${wordToImage(comp)}${smallCompWord}. Ви перемогли!`;
     uChoice_div.classList.add('win');
     setTimeout(() => uChoice_div.classList.remove('win') , 500);
       
@@ -95,7 +95,7 @@ function lose(user, comp){
     cScore++;
     uScore_span.innerHTML = uScore;
     cScore_span.innerHTML = cScore;
-    result_div.innerHTML = `${wordToImage(user)}${smallUserWord} проигрывает ${wordToImage(comp)}${smallCompWord}. Вы проиграли...`;
+    result_div.innerHTML = `${wordToImage(user)}${smallUserWord} програє ${wordToImage(comp)}${smallCompWord}. Ви програли...`;
     uChoice_div.classList.add('lose');
     setTimeout(() => uChoice_div.classList.remove('lose'), 500);
 
@@ -105,7 +105,7 @@ function draw(user, comp){
     const uChoice_div = document.getElementById(user);
     uScore_span.innerHTML = uScore;
     cScore_span.innerHTML = cScore;
-    result_div.innerHTML = `${wordToImage(user)}${smallUserWord} равняеться ${wordToImage(comp)}${smallCompWord}. Ничья!`;
+    result_div.innerHTML = `${wordToImage(user)}${smallUserWord} дорівнює ${wordToImage(comp)}${smallCompWord}. Нічия!`;
     uChoice_div.classList.add('draw');
     setTimeout(() => uChoice_div.classList.remove('draw'), 500);
 }
@@ -138,10 +138,10 @@ function game(userChoice) {
     
     if (uScore>cScore) {
         gameResult_div.innerHTML = `
-        <h1>Вы победили!</h1>
+        <h1>Вы перемогили!</h1>
         <img src="../images/confetti2.gif" class="confetti">
         <p>Счёт ${uScore}:${cScore}</p>
-        <button onclick="location.reload()" class="restart">Заново</button>
+        <button onclick="location.reload()" class="restart">Почати спочатку</button>
         <div id="endgame-achivments"></div>
         
         `;
@@ -154,22 +154,22 @@ function game(userChoice) {
         sessionStorage.RPSwinsStraight++;
         console.log(sessionStorage.RPSwinsStraight);
         localStorage.tp++;
-        endgameAchivments.innerHTML = endgameAchivments.innerHTML+ '<div><p>Вы добыли туалетную бумагу!</p><img src="../images/tp.png" height="80px"></div>';
+        endgameAchivments.innerHTML = endgameAchivments.innerHTML+ '<div><p>Ви добули туалетний папір!</p><img src="../images/tp.png" height="80px"></div>';
         if (sessionStorage.RPSwinsStraight==2) {
             localStorage.msk++;
-            endgameAchivments.innerHTML = endgameAchivments.innerHTML+ '<div><p>Вы добыли маску!</p><img src="../images/msk.png" height="80px"></div>';
+            endgameAchivments.innerHTML = endgameAchivments.innerHTML+ '<div><p>Ви добули маску!</p><img src="../images/msk.png" height="80px"></div>';
         } else if (sessionStorage.RPSwinsStraight==3) {
             localStorage.an++;
-            endgameAchivments.innerHTML = endgameAchivments.innerHTML+'<div><p>Вы добыли антисептик!</p><img src="../images/an.png" height="80px"></div>';
+            endgameAchivments.innerHTML = endgameAchivments.innerHTML+'<div><p>Ви добули антисептик!</p><img src="../images/an.png" height="80px"></div>';
         }
         
         localStorage.RPSwins++;          
     }
     if (uScore<cScore) {
         gameResult_div.innerHTML = `
-    <h1>Вы проиграли!</h1>
+    <h1>Вы програли!</h1>
     <p>Счёт ${uScore}:${cScore}</p>
-    <button onclick="location.reload()" class="restart">Заново</button>
+    <button onclick="location.reload()" class="restart">Почати спочатку</button>
     <div id="endgame-achivments">${achivment}</div>
     `;
         
@@ -178,9 +178,9 @@ function game(userChoice) {
     }
     if (uScore===cScore) {
         gameResult_div.innerHTML = `
-    <h1>Ничья!</h1>
+    <h1>Нічия!</h1>
     <p>Счёт ${uScore}:${cScore}</p>
-    <button onclick="location.reload()" class="restart">Заново</button>
+    <button onclick="location.reload()" class="restart">Почати спочатку</button>
     <div id="endgame-achivments">${achivment}</div>
     `;
         localStorage.RPSdraws++; 
@@ -228,60 +228,60 @@ function startGame() {
 
 function tpUseActions(){
     
-    let exchangeItem = prompt('На что хотите обменять? Введите м если хотите обменять 3 рулона туалетной бумаги на 1 маску. Либо введите а, если хотите обменять 5 рулонов туалетной бумаги на 1 антисептик')
+    let exchangeItem = prompt('На що хочете обміняти? Введіть м, якщо хочете обміняти 3 рулони туалетного паперу на 1 маску. Або введіть а, якщо хочете обміняти 5 рулонів туалетного паперу на 1 антисептик')
     console.log(exchangeItem);
     if (exchangeItem=='v'||exchangeItem=='V'||exchangeItem=='m'||exchangeItem=='M'||exchangeItem=='м'||exchangeItem=='М') {
         if (localStorage.tp>=4){
             localStorage.tp-=4;
             localStorage.msk++;
         } else {
-            alert(`Недостаточно туалетной бумаги :(`)
+            alert(`Недостатньо туалетного паперу :(`)
         }
     } else if (exchangeItem=='a'||exchangeItem=='A'||exchangeItem=='f'||exchangeItem=='F'||exchangeItem=='а'||exchangeItem=='А') {
         if (localStorage.tp>=6){
             localStorage.tp-=6;
             localStorage.an++;
         }else {
-            alert(`Недостаточно туалетной бумаги :(`)
+            alert(`Недостатньо туалетного паперу :(`)
         }
     }
 }
 function mskUseActions(){
-    let exchangeItem = prompt('На что хотите обменять? Введите т если хотите обменять 1 маску на 4 рулона туалетной бумаги. Либо введите а, если хотите обменять 2 маски на 1 антисептик')
+    let exchangeItem = prompt('На що хочете обміняти? Введіть т, якщо хочете обміняти 1 маску на 4 рулони туалетного паперу. Або введіть а, якщо хочете обміняти 2 маски на 1 антисептик')
     console.log(exchangeItem);
     if (exchangeItem=='т'||exchangeItem=='Т'||exchangeItem=='t'||exchangeItem=='T'||exchangeItem=='n'||exchangeItem=='N') {
         if (localStorage.msk>=1){
             localStorage.msk--;
             localStorage.tp= +localStorage.tp + 3;
         } else {
-            alert(`Недостаточно масок :(`)
+            alert(`Недостатньо масок :(`)
         }
     } else if (exchangeItem=='a'||exchangeItem=='A'||exchangeItem=='f'||exchangeItem=='F'||exchangeItem=='а'||exchangeItem=='А') {
         if (localStorage.msk>=3){
             localStorage.msk-=3;
             localStorage.an++;
         }else {
-            alert(`Недостаточно масок :(`)
+            alert(`Недостатньо масок :(`)
         }
     }
     
 }
 function anUseActions(){
-    let exchangeItem = prompt('На что хотите обменять? Введите т если хотите обменять 1 антисептик на 6 рулонов туалетной бумаги. Либо введите м, если хотите обменять 1 антисептик на 3 маски')
+    let exchangeItem = prompt('На що хочете обміняти? Введіть т, якщо хочете обміняти 1 антисептик на 6 рулонів туалетного паперу. Або введіть м, якщо хочете обміняти 1 антисептик на 3 маски')
     console.log(exchangeItem);
     if (exchangeItem=='т'||exchangeItem=='Т'||exchangeItem=='t'||exchangeItem=='T'||exchangeItem=='n'||exchangeItem=='N') {
         if (localStorage.an>=1){
             localStorage.an--;
             localStorage.tp= +localStorage.tp + 5;
         } else {
-            alert(`Недостаточно антисептиков :(`)
+            alert(`Недостатньо антисептиків :(`)
         }
     } else if (exchangeItem=='v'||exchangeItem=='V'||exchangeItem=='m'||exchangeItem=='M'||exchangeItem=='м'||exchangeItem=='М') {
         if (localStorage.an>=1){
             localStorage.an--;
             localStorage.msk= +localStorage.msk + 2;
         }else {
-            alert(`Недостаточно антисептиков :(`)
+            alert(`Недостатньо антисептиків :(`)
         }
     }
     

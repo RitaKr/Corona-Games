@@ -77,7 +77,7 @@ const player = new Image();
 player.addEventListener(
   "load",
   function () {
-    // здесь выполняет drawImage функцию
+    // здесьВиполняет drawImage функцию
     draw();
   },
   false

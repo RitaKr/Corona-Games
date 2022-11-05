@@ -52,7 +52,7 @@ function updateTime (){
 function gameOver(reason){
     clearInterval(timeInterval);
     switch (reason) {
-        case 'complete': gameoverTitle = 'Поздравляю, Вы прошли судоку!'
+        case 'complete': gameoverTitle = 'Поздравляю,Ви прошли судоку!'
         break;
         case 'wrong': gameoverTitle = 'Допустимое количесто ошибок исчерпано! Попробуйте ещё раз.'
         break;
@@ -63,14 +63,14 @@ function gameOver(reason){
     `;
     if (localStorage.SbestTime>time && reason=='complete') {
         localStorage.SbestTime=time;
-        endgameEl.innerHTML += `<h3 class="record">Новый рекорд!</h3><img src="../images/confetti2.gif" class="confetti">`
+        endgameEl.innerHTML += `<h3 class="record">Новий рекорд!</h3><img src="../images/confetti2.gif" class="confetti">`
         setTimeout(()=>{
             document.querySelector('.confetti').style.opacity = '0';
             console.log('fade')
         }, 2300)
     } 
-    endgameEl.innerHTML += `<p>Время игры: ${time}</p>
-    <button onclick="location.reload()" class="restart">Заново</button>
+    endgameEl.innerHTML += `<p>Время гри: ${time}</p>
+    <button onclick="location.reload()" class="restart">Почати спочатку</button>
     <div id="endgame-achivments"></div>
     `;
     const endgameAchivments = document.getElementById('endgame-achivments');
@@ -78,16 +78,16 @@ function gameOver(reason){
         /*
         if (score>=15) {
             localStorage.tp= +localStorage.tp + Math.floor(score/8);
-            endgameAchivments.innerHTML = endgameAchivments.innerHTML+`<div><p>Вы добыли туалетную бумагу в количестве ${Math.floor(score/8)} шт!</p><img src="../images/tp.png" height="80px"></div>`;
+            endgameAchivments.innerHTML = endgameAchivments.innerHTML+`<div><p>Ви добули туалетний папір у кількості ${Math.floor(score/8)} шт!</p><img src="../images/tp.png" height="80px"></div>`;
             
         }
         if (score>=20) {
             localStorage.msk= +localStorage.msk + Math.floor(score/12);
-            endgameAchivments.innerHTML = endgameAchivments.innerHTML+`<div><p>Вы добыли маски в количестве ${Math.floor(score/11)} шт!</p><img src="../images/msk.png" height="80px"></div>`;
+            endgameAchivments.innerHTML = endgameAchivments.innerHTML+`<div><p>Ви добули маски у кількості ${Math.floor(score/11)} шт!</p><img src="../images/msk.png" height="80px"></div>`;
         }
         if (score>=30) {
             localStorage.an= +localStorage.an + Math.floor(score/22);
-            endgameAchivments.innerHTML = endgameAchivments.innerHTML+'<div><p>Вы добыли антисептик!</p><img src="../images/an.png" height="80px"></div>';
+            endgameAchivments.innerHTML = endgameAchivments.innerHTML+'<div><p>Ви добули антисептик!</p><img src="../images/an.png" height="80px"></div>';
         } */
         
     //location.reload();
@@ -118,7 +118,7 @@ function updateBustUpInners(bust){
         return ` +${hints - 3} подсказка`
     } 
     if (bust=='msk') {
-        return` право на ошибку (${mistakeRoot})`
+        return` право на помилку (${mistakeRoot})`
     } 
    /* if (bust=='mistakeRoot') {
         return ` (${mistakeRoot})`

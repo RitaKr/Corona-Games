@@ -282,7 +282,7 @@ function moveBall() {
   if (ball.y + ball.size > canvas.height) {
     if (mistakeRoot>0) {
       mistakeRoot--;
-      bustUpSpanMistakes.innerHTML =bustVal+ ` право на ошибку (${mistakeRoot})`;
+      bustUpSpanMistakes.innerHTML =bustVal+ ` право на помилку (${mistakeRoot})`;
     } else{
       //makeSound('Иди в баню');
       gameOver();
@@ -358,12 +358,12 @@ function shutGame(){
 function gameOver(){
   shutGame();
   endgameEl.innerHTML = `
-  <h1>Промах! Игра окончена!</h1>
+  <h1>Промах! Кінець гри!</h1>
   
   `;
   if (localStorage.BObestScore<score) {
       localStorage.BObestScore=score;
-      endgameEl.innerHTML += `<h3 class="record">Новый рекорд!</h3><img src="../images/confetti2.gif" class="confetti">`
+      endgameEl.innerHTML += `<h3 class="record">Новий рекорд!</h3><img src="../images/confetti2.gif" class="confetti">`
       setTimeout(()=>{
           document.querySelector('.confetti').style.opacity = '0';
           console.log('fade')
@@ -372,24 +372,24 @@ function gameOver(){
   if (localStorage.BObestLevel<level) {
     localStorage.BObestLevel=level;
 }
-  endgameEl.innerHTML += `<p>Ваш счёт ${score}</p>
-  <button onclick="location.reload()" class="restart">Заново</button>
+  endgameEl.innerHTML += `<p>Ваш рахунок ${score}</p>
+  <button onclick="location.reload()" class="restart">Почати спочатку</button>
   <div id="endgame-achivments"></div>
   `;
   const endgameAchivments = document.getElementById('endgame-achivments');
   endgameEl.style.display = 'flex';
       if (score>=15) {
           localStorage.tp= +localStorage.tp + Math.floor(score/15);
-          endgameAchivments.innerHTML = endgameAchivments.innerHTML+`<div><p>Вы добыли туалетную бумагу в количестве ${Math.floor(score/15)} шт!</p><img src="../images/tp.png" height="80px"></div>`;
+          endgameAchivments.innerHTML = endgameAchivments.innerHTML+`<div><p>Ви добули туалетний папір у кількості ${Math.floor(score/15)} шт!</p><img src="../images/tp.png" height="80px"></div>`;
           
       }
       if (score>=30) {
           localStorage.msk= +localStorage.msk + Math.floor(score/30);
-          endgameAchivments.innerHTML = endgameAchivments.innerHTML+`<div><p>Вы добыли маски в количестве ${Math.floor(score/30)} шт!</p><img src="../images/msk.png" height="80px"></div>`;
+          endgameAchivments.innerHTML = endgameAchivments.innerHTML+`<div><p>Ви добули маски у кількості ${Math.floor(score/30)} шт!</p><img src="../images/msk.png" height="80px"></div>`;
       }
       if (score>=45) {
           localStorage.an= +localStorage.an + Math.floor(score/(brickRowCount * brickColumnCount));
-          endgameAchivments.innerHTML = endgameAchivments.innerHTML+`<div><p>Вы добыли антисептики в количестве ${Math.floor(score/(brickRowCount * brickColumnCount))} шт!</p><img src="../images/an.png" height="80px"></div>`;
+          endgameAchivments.innerHTML = endgameAchivments.innerHTML+`<div><p>Ви добули антисептики в количестве ${Math.floor(score/(brickRowCount * brickColumnCount))} шт!</p><img src="../images/an.png" height="80px"></div>`;
       } 
       
   //location.reload();
@@ -409,13 +409,13 @@ const bustUpSpanWidth = document.getElementById('bust-up-span-width');
  
 function updateBustUpInners(bust){
     if (bust=='tp') {
-        return ` удлинение доски (${brick.w}px)`
+        return ` подовження дощечки (${brick.w}px)`
     } 
     if (bust=='msk') {
-        return` право на ошибку (${mistakeRoot})`
+        return` право на помилку (${mistakeRoot})`
     } 
    if (bust=='an') {
-        return ` замедление шарика`
+        return ` сповільнення кульки`
     }
     
 }

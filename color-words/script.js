@@ -1,61 +1,61 @@
 const words = [
     {
-        word: 'красный',
+        word: 'червоний',
         color: 'red',
         id: 0,
     },
     {
-        word: 'белый',
+        word: 'білий',
         color: 'white',
         id: 1,
     },
     {
-        word: 'синий',
+        word: 'синій',
         color: 'blue',
         id: 2,
     },
     {
-        word: 'жёлтый',
+        word: 'жовтий',
         color: 'yellow',
         id: 3,
     },
     {
-        word: 'оранжевый',
+        word: 'помаранчевий',
         color: 'orangered',
         id: 4,
     },
     {
-        word: 'зелёный',
+        word: 'зелений',
         color: 'green',
         id: 5,
     },
     {
-        word: 'фиолетовый',
+        word: 'фіолетовий',
         color: 'purple',
         id: 6,
     },
     {
-        word: 'чёрный',
+        word: 'чорний',
         color: 'black',
         id: 7,
     },
     {
-        word: 'серый',
+        word: 'сірий',
         color: 'gray',
         id: 8,
     },
     {
-        word: 'коричневый',
+        word: 'коричневий',
         color: 'saddlebrown',
         id: 9,
     },
     {
-        word: 'голубой',
+        word: 'блакитний',
         color: 'royalblue',
         id: 10,
     },
     {
-        word: 'розовый',
+        word: 'рожевий',
         color: 'hotpink',
         id: 11,
     },
@@ -118,9 +118,9 @@ function updateTime (){
 function gameOver(reason){
     clearInterval(timeInterval);
     switch (reason) {
-        case 'timeout': gameoverTitle = 'Время вышло! Игра окончена'
+        case 'timeout': gameoverTitle = 'Час вийшов! Кінець гри'
         break;
-        case 'wrong': gameoverTitle = 'Неправильный ответ! Игра окончена'
+        case 'wrong': gameoverTitle = 'Неправильна відповідь! Кінець гри'
         break;
     }
     endgameEl.innerHTML = `
@@ -129,30 +129,30 @@ function gameOver(reason){
     `;
     if (localStorage.CWbestScore<score) {
         localStorage.CWbestScore=score;
-        endgameEl.innerHTML += `<h3 class="record">Новый рекорд!</h3><img src="../images/confetti2.gif" class="confetti">`
+        endgameEl.innerHTML += `<h3 class="record">Новий рекорд!</h3><img src="../images/confetti2.gif" class="confetti">`
         setTimeout(()=>{
             document.querySelector('.confetti').style.opacity = '0';
             console.log('fade')
         }, 2300)
     } 
-    endgameEl.innerHTML += `<p>Ваш счёт ${score}</p>
-    <button onclick="location.reload()" class="restart">Заново</button>
+    endgameEl.innerHTML += `<p>Ваш рахунок ${score}</p>
+    <button onclick="location.reload()" class="restart">Почати спочатку</button>
     <div id="endgame-achivments"></div>
     `;
     const endgameAchivments = document.getElementById('endgame-achivments');
     endgameEl.style.display = 'flex';
         if (score>=15) {
             localStorage.tp= +localStorage.tp + Math.floor(score/8);
-            endgameAchivments.innerHTML = endgameAchivments.innerHTML+`<div><p>Вы добыли туалетную бумагу в количестве ${Math.floor(score/8)} шт!</p><img src="../images/tp.png" height="80px"></div>`;
+            endgameAchivments.innerHTML = endgameAchivments.innerHTML+`<div><p>Ви добули туалетний папір у кількості ${Math.floor(score/8)} шт!</p><img src="../images/tp.png" height="80px"></div>`;
             
         }
         if (score>=20) {
             localStorage.msk= +localStorage.msk + Math.floor(score/12);
-            endgameAchivments.innerHTML = endgameAchivments.innerHTML+`<div><p>Вы добыли маски в количестве ${Math.floor(score/11)} шт!</p><img src="../images/msk.png" height="80px"></div>`;
+            endgameAchivments.innerHTML = endgameAchivments.innerHTML+`<div><p>Ви добули маски у кількості ${Math.floor(score/11)} шт!</p><img src="../images/msk.png" height="80px"></div>`;
         }
         if (score>=30) {
             localStorage.an= +localStorage.an + Math.floor(score/22);
-            endgameAchivments.innerHTML = endgameAchivments.innerHTML+'<div><p>Вы добыли антисептик!</p><img src="../images/an.png" height="80px"></div>';
+            endgameAchivments.innerHTML = endgameAchivments.innerHTML+'<div><p>Ви добули антисептик!</p><img src="../images/an.png" height="80px"></div>';
         } 
         
     //location.reload();
@@ -244,7 +244,7 @@ document.querySelectorAll('.answer').forEach(item => {
             updateScore()
         } else if (mistakeRoot>0) {
             mistakeRoot--;
-            bustUpSpanMistakes.innerHTML =bustVal+ ` право на ошибку (${mistakeRoot})`;
+            bustUpSpanMistakes.innerHTML =bustVal+ ` право на помилку (${mistakeRoot})`;
         } else {
             gameOver('wrong');
         } 
@@ -255,7 +255,7 @@ function updateBustUpInners(bust){
         return ` +${time-30}s`
     } 
     if (bust=='msk') {
-        return` право на ошибку (${mistakeRoot})`
+        return` право на помилку (${mistakeRoot})`
     } 
    /* if (bust=='mistakeRoot') {
         return ` (${mistakeRoot})`
