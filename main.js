@@ -245,7 +245,7 @@ rulesBtn.addEventListener('click',()=>{
         isOpen=true;
     }
 })
-NullProgress()
+//NullProgress()
 if (localStorage.tp == null) {
     localStorage.setItem('tp', 0);
 } 
