@@ -138,9 +138,9 @@ function game(userChoice) {
     
     if (uScore>cScore) {
         gameResult_div.innerHTML = `
-        <h1>Вы перемогили!</h1>
+        <h1>Ви перемогили!</h1>
         <img src="../images/confetti2.gif" class="confetti">
-        <p>Счёт ${uScore}:${cScore}</p>
+        <p>Рахунок ${uScore}:${cScore}</p>
         <button onclick="location.reload()" class="restart">Почати спочатку</button>
         <div id="endgame-achivments"></div>
         
@@ -167,8 +167,8 @@ function game(userChoice) {
     }
     if (uScore<cScore) {
         gameResult_div.innerHTML = `
-    <h1>Вы програли!</h1>
-    <p>Счёт ${uScore}:${cScore}</p>
+    <h1>Ви програли!</h1>
+    <p>Рахунок ${uScore}:${cScore}</p>
     <button onclick="location.reload()" class="restart">Почати спочатку</button>
     <div id="endgame-achivments">${achivment}</div>
     `;
@@ -179,7 +179,7 @@ function game(userChoice) {
     if (uScore===cScore) {
         gameResult_div.innerHTML = `
     <h1>Нічия!</h1>
-    <p>Счёт ${uScore}:${cScore}</p>
+    <p>Рахунок ${uScore}:${cScore}</p>
     <button onclick="location.reload()" class="restart">Почати спочатку</button>
     <div id="endgame-achivments">${achivment}</div>
     `;
